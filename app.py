@@ -1,10 +1,11 @@
-from flask import Flask, request
+from flask import Flask
 from project.config.config import config
 from project.processors.context_processor import blueprint as context_processor
 from project.routes.user_route import blueprint as user_route
 from project.routes.homepage_route import blueprint as homepage_route
 from project.routes.locale_route import blueprint as locale_route
 from project.handlers.error_handlers import blueprint as error_handlers
+from project.utils import database_util
 
 
 ###############################################################################

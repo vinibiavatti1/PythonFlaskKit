@@ -1,3 +1,6 @@
+"""
+Context processor is used to define some data for all Jinja templates
+"""
 from flask import Blueprint, request
 from project.config.config import config
 from project.dictionaries.dictionary import get_dictionary

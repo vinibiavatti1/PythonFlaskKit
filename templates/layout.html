@@ -2,27 +2,15 @@
 {% from "macros/sidenav.html" import sidenav with context %}
 {% from "macros/datatables.html" import datatables_script with context %}
 {% from "macros/footer.html" import footer with context %}
-{% from "macros/imports.html" import import_styles, import_scripts %}
+{% from "macros/headers.html" import metas, styles, scripts with context %}
 
 <!DOCTYPE html>
 <html lang="{{config.lang}}">
 <head>
-    <!-- Metas -->
-    <meta charset="{{config.charset}}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% if config.responsive %}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% endif %}
-    <meta name="description" content="{{config.description}}">
-    <meta name="keywords" content="{{config.keywords}}">
-    <meta name="author" content="{{config.author}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{config.favicon16}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{config.favicon32}}">
-    <title>{{config.title}}</title>
-
-    <!-- Resources -->
-    {{ import_styles() }}
-    {{ import_scripts() }}
+    <title>{{config.title}} | {% block title %}{% endblock %}</title>
+    {{ metas() }}
+    {{ styles() }}
+    {{ scripts() }}
 </head>
 <body>
     <header>

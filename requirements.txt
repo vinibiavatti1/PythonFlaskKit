@@ -8,8 +8,11 @@ Jinja2==3.0.1
 lazy-object-proxy==1.6.0
 MarkupSafe==2.0.1
 mccabe==0.6.1
+mysql-connector-python==8.0.26
+protobuf==3.17.3
 pycodestyle==2.7.0
 pylint==2.8.2
+six==1.16.0
 toml==0.10.2
 Werkzeug==2.0.1
 wrapt==1.12.1
