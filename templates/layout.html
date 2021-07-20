@@ -2,6 +2,7 @@
 {% from "macros/sidenav.html" import sidenav with context %}
 {% from "macros/datatables.html" import datatables_script with context %}
 {% from "macros/footer.html" import footer with context %}
+{% from "macros/imports.html" import import_styles, import_scripts %}
 
 <!DOCTYPE html>
 <html lang="{{config.lang}}">
@@ -15,28 +16,13 @@
     <meta name="description" content="{{config.description}}">
     <meta name="keywords" content="{{config.keywords}}">
     <meta name="author" content="{{config.author}}">
-    <title>{{config.title}}</title>
-
-    <!-- favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{config.favicon16}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{config.favicon32}}">
+    <title>{{config.title}}</title>
 
-    <!-- Jquery -->
-    <script src="/static/jquery/jquery.min.js"></script>
-
-    <!-- Datatables -->
-    <script src="/static/datatables/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="/static/datatables/css/jquery.dataTables.min.css">
-
-    <!-- Materialize -->
-    <link rel="stylesheet" href="/static/materialize/materialize.min.css">
-    <script src="/static/materialize/materialize.min.js"></script>
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
-
-    <!-- Website style -->
-    <link rel="stylesheet" href="/static/style.css">
+    <!-- Resources -->
+    {{ import_styles() }}
+    {{ import_scripts() }}
 </head>
 <body>
     <header>

@@ -1,37 +1,34 @@
 from flask import Flask, request
-from flask.templating import render_template
-from markupsafe import escape
 from project.config.config import config
-from project.dictionaries.dictionary import get_dictionary
-from project.routes.user import blueprint as user_blueprint
-from project.routes.homepage import blueprint as homepage_blueprint
-from project.routes.locale import blueprint as locale_blueprint
+from project.processors.context_processor import blueprint as context_processor
+from project.routes.user_route import blueprint as user_route
+from project.routes.homepage_route import blueprint as homepage_route
+from project.routes.locale_route import blueprint as locale_route
+from project.handlers.error_handlers import blueprint as error_handlers
 
 
+###############################################################################
 # Init flask
+###############################################################################
+
+
+# Init flask and set the secret key
 app = Flask(__name__)
+app.secret_key = config['secret_key']
 
 
+###############################################################################
 # Register blueprints
-app.register_blueprint(user_blueprint)
-app.register_blueprint(homepage_blueprint)
-app.register_blueprint(locale_blueprint)
+###############################################################################
 
 
-# Context processors
-@app.context_processor
-def inject_configuration():
-    return dict(config=config)
+# Processors
+app.register_blueprint(context_processor)
 
+# Handlers
+app.register_blueprint(error_handlers)
 
-@app.context_processor
-def inject_dictionary():
-    lang = request.cookies.get('lang', None)
-    dictionary = get_dictionary(lang)
-    return dict(dictionary=dictionary)
-
-
-# Errors handler
-@app.errorhandler(404)
-def not_found(error_message):
-    return render_template('errors/404.html', error_message=error_message)
+# Routes
+app.register_blueprint(user_route)
+app.register_blueprint(homepage_route)
+app.register_blueprint(locale_route)

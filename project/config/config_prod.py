@@ -12,8 +12,8 @@ config = {
     'key_words': 'key,words',
     'responsive': True,
     'charset': 'UTF-8',
-    'favicon16': '/static/favicons/favicon-16x16.png',
-    'favicon32': '/static/favicons/favicon-32x32.png',
+    'favicon16': '/static/images/favicon-16x16.png',
+    'favicon32': '/static/images/favicon-32x32.png',
 
     # Locale
     'idiom': 'en_US',
@@ -30,6 +30,7 @@ config = {
 
     # Hashes
     'salt': '73ef930e2b797a5b5daa73cf3a3025ce853d1bb8',
+    'secret_key': 'd98c0a718103d04cb051f429728a78963f2330ce',
 
     # E-mail
     'mail_smtp': 'smtp.example.com',

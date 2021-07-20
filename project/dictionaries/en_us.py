@@ -7,6 +7,7 @@ dictionary = {
         'not_found': 'Sorry, this page is unavailable',
         'forbidden': 'Forbidden access',
         'unauthorized': 'You must be authenticated to access this content',
-        'bad_request': 'The server could not process the request'
+        'bad_request': 'The server could not process the request',
+        'internal_server_error': 'An internal server error ocurred'
     },
 }

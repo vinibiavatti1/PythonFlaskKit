@@ -13,7 +13,7 @@ hr {
 /* Custom styles */
 html {
     background-color: #222;
-    background-image: url('/static/background.png');
+    background-image: url('/static/images/background.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -93,7 +93,7 @@ body {
     animation: body-animation 0.25s;
 }
 
-@KeyFrames body-animation {
+@keyframes body-animation {
     from {
         opacity: 0.0;
     }

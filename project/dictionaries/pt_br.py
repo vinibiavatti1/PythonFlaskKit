@@ -8,6 +8,7 @@ dictionary = {
         'forbidden': 'Acesso proibido',
         'unauthorized': 'Você precisa estar autenticado para acessar' +
                         'este conteúdo',
-        'bad_request': 'O servidor não conseguiu processar a requisição'
+        'bad_request': 'O servidor não conseguiu processar a requisição',
+        'internal_server_error': 'Ocorreu um erro interno no servidor',
     },
 }

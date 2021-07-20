@@ -5,7 +5,11 @@ from flask import Blueprint, request, redirect, make_response
 blueprint = Blueprint('locale', __name__, url_prefix='/locale')
 
 
+###############################################################################
 # Routes
+###############################################################################
+
+
 @blueprint.route('/<lang>')
 def register(lang):
     response = make_response(redirect(request.referrer))
