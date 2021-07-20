@@ -1,0 +1,11 @@
+{% macro datatables_script(selector = '.datatable') %}
+<script>
+    $("{{selector}}").dataTable({
+        'bLengthChange': false,
+        'pageLength': 20,
+        'order': [[0, 'asc']]
+    });
+    $("select").formSelect();
+    $("input[type=search]").attr("placeholder", "Search");
+</script>
+{% endmacro %}

@@ -1,0 +1,56 @@
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/sidenav.html" import sidenav with context %}
+{% from "macros/datatables.html" import datatables_script with context %}
+{% from "macros/footer.html" import footer with context %}
+
+<!DOCTYPE html>
+<html lang="{{config.lang}}">
+<head>
+    <!-- Metas -->
+    <meta charset="{{config.charset}}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% if config.responsive %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endif %}
+    <meta name="description" content="{{config.description}}">
+    <meta name="keywords" content="{{config.keywords}}">
+    <meta name="author" content="{{config.author}}">
+    <title>{{config.title}}</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{config.favicon16}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{config.favicon32}}">
+
+    <!-- Jquery -->
+    <script src="/static/jquery/jquery.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="/static/datatables/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="/static/datatables/css/jquery.dataTables.min.css">
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="/static/materialize/materialize.min.css">
+    <script src="/static/materialize/materialize.min.js"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+
+    <!-- Website style -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        {{ navbar() }}
+        {{ sidenav() }}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        {{ footer() }}
+    </footer>
+</body>
+
+<!-- Initializers -->
+{{ datatables_script() }}
+</html>
