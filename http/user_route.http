@@ -1,3 +1,6 @@
+# Use http files with the RestClient extension to make requests and tests using
+# the API
+
 POST https://example.com/comments HTTP/1.1
 content-type: application/json
 

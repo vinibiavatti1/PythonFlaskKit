@@ -2,7 +2,7 @@ from flask import Blueprint, request, redirect, make_response
 
 
 # Blueprint
-blueprint = Blueprint('locale', __name__, url_prefix='/locale')
+blueprint = Blueprint('locale', __name__)
 
 
 ###############################################################################

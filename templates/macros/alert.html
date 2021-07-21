@@ -1,0 +1,23 @@
+{% macro alert(type, message) %}
+    {% if type == 'error' %}
+        <div class="alert alert-error">
+            <i class="mdi mdi-alert-octagon-outline mdi-18px"></i>
+            {{message}}
+        </div>
+    {% elif type == 'success' %}
+        <div class="alert alert-success">
+            <i class="mdi mdi-check-circle-outline mdi-18px"></i>
+            {{message}}
+        </div>
+    {% elif type == 'warning' %}
+        <div class="alert alert-warning">
+            <i class="mdi mdi-alert-outline mdi-18px"></i>
+            {{message}}
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            <i class="mdi mdi-information-outline mdi-18px"></i>
+            {{message}}
+        </div>
+    {% endif %}
+{% endmacro %}

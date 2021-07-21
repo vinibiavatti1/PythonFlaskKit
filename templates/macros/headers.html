@@ -1,26 +1,33 @@
+{# Metatags #}
 {% macro metas() %}
-<meta charset="{{config.charset}}">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-{% if config.responsive %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{% endif %}
-<meta name="description" content="{{config.description}}">
-<meta name="keywords" content="{{config.keywords}}">
-<meta name="author" content="{{config.author}}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{config.favicon16}}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{config.favicon32}}">
+    <meta charset="{{config.charset}}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% if config.responsive %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endif %}
+    <meta name="description" content="{{config.description}}">
+    <meta name="keywords" content="{{config.keywords}}">
+    <meta name="author" content="{{config.author}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{config.favicon16}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{config.favicon32}}">
 {% endmacro %}
 
+{# Styles #}
 {% macro styles() %}
-<link rel="stylesheet" href="/static/plugins/datatables-1.10.25/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="/static/plugins/materialize-1.0.0/materialize.min.css">
-<link rel="stylesheet" href="/static/styles/general.css">
-<link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/plugins/datatables-1.10.25/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/static/plugins/materialize-1.0.0/materialize.min.css">
+    <link rel="stylesheet" href="/static/plugins/leaflet-1.7.1/leaflet.css">
+    <link rel="stylesheet" href="/static/styles/general.css">
+    <link rel="stylesheet" href="/static/styles/alerts.css">
+    <link rel="stylesheet" href="/static/styles/panel.css">
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
 {% endmacro %}
 
+{# Scripts #}
 {% macro scripts() %}
-<script src="/static/plugins/jquery-3.6.0/jquery.min.js"></script>
-<script src="/static/plugins/datatables-1.10.25/js/jquery.dataTables.min.js"></script>
-<script src="/static/plugins/materialize-1.0.0/materialize.min.js"></script>
-<script src="/static/plugins/chartjs-3.4.1/chartjs.min.js"></script>
+    <script src="/static/plugins/jquery-3.6.0/jquery.min.js"></script>
+    <script src="/static/plugins/datatables-1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="/static/plugins/materialize-1.0.0/materialize.min.js"></script>
+    <script src="/static/plugins/chartjs-3.4.1/chartjs.min.js"></script>
+    <script src="/static/plugins/leaflet-1.7.1/leaflet.js"></script>
 {% endmacro %}

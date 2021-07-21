@@ -1,50 +1,56 @@
 {% macro sidenav() %}
-<ul id="sidenav" class="sidenav">
-    <li class="center">
-        <div class="avatar-letters circle center white-text" style="width: 64px; height: 64px; background: deepblue;">VB</div>
-    </li>
-    <li class="user-data">
-        <div class="user-name">Vinícius Reif Biavatti</div>
-        <div class="user-name">vinicius.biavatti@gmail.com</div>
-    </li>
-    <li>
-        <div class="divider"></div>
-    </li>
-    <li>
-        <a class="subheader">
-            Menu
-        </a>
-    </li>
-    <li class="waves-effect waves-light">
-        <a href="#!">
-            <i class="mdi mdi-home mdi-24px"></i>
-            First Link With Icon
-        </a>
-    </li>
-    <li class="waves-effect waves-light">
-        <a href="#!">
-            <i class="mdi mdi-home mdi-24px"></i>
-            Second Link
-        </a>
-    </li>
-    <li>
-        <div class="divider"></div>
-    </li>
-    <li>
-        <a class="subheader">
-            Others
-        </a>
-    </li>
-    <li class="waves-effect waves-light">
-        <a class="waves-effect" href="#!">
-            <i class="mdi mdi-home mdi-24px"></i>
-            Third Link With Waves
-        </a>
-    </li>
-</ul>
-<script>
-    $(document).ready(() => {
-        $("#sidenav").sidenav();
-    });
-</script>
+    <ul id="sidenav" class="sidenav">
+        {% if is_authenticated() %}
+            <li class="center">
+                <div class="avatar-letters circle center white-text" style="width: 64px; height: 64px; background: deepblue;">AA</div>
+            </li>
+            <li class="user-data">
+                <div class="user-name">Admin</div>
+                <div class="user-name">admin@admin.com</div>
+            </li>
+        {% else %}
+            <li class="center">
+                <h4 class="light white-text" style="margin: 15px 0px!important;">{{ config.title }}</h4>
+            </li>
+        {% endif %}
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a class="subheader">
+                Menu
+            </a>
+        </li>
+        <li class="waves-effect waves-light">
+            <a href="#!">
+                <i class="mdi mdi-home mdi-24px"></i>
+                First Link With Icon
+            </a>
+        </li>
+        <li class="waves-effect waves-light">
+            <a href="#!">
+                <i class="mdi mdi-home mdi-24px"></i>
+                Second Link
+            </a>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a class="subheader">
+                Others
+            </a>
+        </li>
+        <li class="waves-effect waves-light">
+            <a class="waves-effect" href="#!">
+                <i class="mdi mdi-home mdi-24px"></i>
+                Third Link With Waves
+            </a>
+        </li>
+    </ul>
+    <script>
+        $(document).ready(() => {
+            $("#sidenav").sidenav();
+        });
+    </script>
 {% endmacro %}

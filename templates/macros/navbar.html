@@ -1,16 +1,16 @@
 {% macro navbar() %}
-<nav class="navbar translucent z-depth-0">
-    <div class="container">
-        <a class="brand-logo hide-on-small-only light" href="/">{{config.title}}</a>
-        <div class="right">
-            <ul class="right">
-                <li><a href="/locale/en_us" >EN-US</a></li>
-                <li><a href="/locale/pt_br" >PT-BR</a></li>
-            </ul>
+    <nav class="navbar translucent z-depth-0">
+        <div class="container">
+            <a class="brand-logo hide-on-small-only light" href="/">{{config.title}}</a>
+            <div class="right">
+                <ul class="right">
+                    <li><a href="/locale/en_us" >EN-US</a></li>
+                    <li><a href="/locale/pt_br" >PT-BR</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <a class="sidenav-btn left sidenav-trigger" style="display: inline-block;" data-target="sidenav" href="#!">
-        <span class="mdi mdi-menu mdi-24px"></span>
-    </a>
-</nav>
+        <a class="sidenav-btn left sidenav-trigger" style="display: inline-block;" data-target="sidenav" href="#!">
+            <span class="mdi mdi-menu mdi-24px"></span>
+        </a>
+    </nav>
 {% endmacro %}

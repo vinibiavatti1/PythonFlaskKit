@@ -1,8 +1,9 @@
 from flask import Blueprint, render_template
+from project.decorators import auth
 
 
 # Blueprint
-blueprint = Blueprint('homepage', __name__)
+blueprint = Blueprint('map', __name__)
 
 
 ###############################################################################
@@ -11,5 +12,6 @@ blueprint = Blueprint('homepage', __name__)
 
 
 @blueprint.route('/')
+@auth.login_required()
 def index():
-    return render_template('/home/homepage.html')
+    return render_template('/backoffice/map.html')

@@ -13,6 +13,8 @@
     "editor.rulers": [
         79
     ],
+    "html.validate.scripts": false,
+    "html.validate.styles": false,
 
     // Hide files
     "files.exclude": {
