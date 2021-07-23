@@ -1,0 +1,11 @@
+{% from "macros/chart.html" import chart with context %}
+{% extends 'layout.html' %}
+{% block title %}Chart{% endblock %}
+{% block content %}
+<div class="container">
+    <h5 class="white-text">Chart Example</h5>
+    <div class="panel">
+        {{ chart('chart', '100%', '600px', chart_type, json_data) }}
+    </div>
+</div>
+{% endblock %}

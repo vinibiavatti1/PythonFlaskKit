@@ -1,0 +1,93 @@
+{% macro text_field(id, name, label, placeholder='', required=True,
+                    css_class='', disabled=False, default='') %}
+    <span>{{label}}</span>
+    <input
+        type="text",
+        id="{{id}}"
+        name="{{name}}"
+        value="{{default}}"
+        class="{{css_class}}"
+        placeholder="{{placeholder}}"
+        {% if disabled %}disabled{% endif %}
+        {% if required %}required{% endif %}
+    >
+{% endmacro %}
+
+{% macro numeric_field(id, name, label, placeholder='', required=True,
+                       css_class='', disabled=False, default='', min_value=0,
+                       max_value=100, step_value=1) %}
+    <span>{{label}}</span>
+    <input
+        type="number",
+        id="{{id}}"
+        name="{{name}}"
+        value="{{default}}"
+        class="{{css_class}}"
+        min="{{min_value}}"
+        max="{{max_value}}"
+        step="{{step_value}}"
+        placeholder="{{placeholder}}"
+        {% if disabled %}disabled{% endif %}
+        {% if required %}required{% endif %}
+    >
+{% endmacro %}
+
+{% macro textarea_field(id, name, label, placeholder='', required=True,
+                        css_class='', disabled=False, default='') %}
+    <span>{{label}}</span>
+    <textarea
+        id="{{id}}"
+        name="{{name}}"
+        class="browser-default {{css_class}}"
+        placeholder="{{placeholder}}"
+        {% if disabled %}disabled{% endif %}
+        {% if required %}required{% endif %}
+    >{{default}}</textarea>
+{% endmacro %}
+
+{% macro date_field(id, name, label, placeholder='', required=True,
+                    css_class='', disabled=False, default='') %}
+    <span>{{label}}</span>
+    <input
+        type="date",
+        id="{{id}}"
+        name="{{name}}"
+        value="{{default}}"
+        class="{{css_class}}"
+        placeholder="{{placeholder}}"
+        {% if disabled %}disabled{% endif %}
+        {% if required %}required{% endif %}
+    >
+{% endmacro %}
+
+{% macro datetime_field(id, name, label, placeholder='', required=True,
+                        css_class='', disabled=False, default='') %}
+    <span>{{label}}</span>
+    <input
+        type="datetime-local",
+        id="{{id}}"
+        name="{{name}}"
+        value="{{default}}"
+        class="{{css_class}}"
+        placeholder="{{placeholder}}"
+        {% if disabled %}disabled{% endif %}
+        {% if required %}required{% endif %}
+    >
+{% endmacro %}
+
+{% macro select_field(id, name, label, placeholder='', required=True,
+                      css_class='', disabled=False, default='', options={}) %}
+    <span>{{label}}</span>
+    <select
+        id="{{id}}"
+        name="{{name}}"
+        class="{{css_class}} browser-default"
+        {% if required %}required{% endif %}
+        {% if disabled %}disabled{% endif %}
+    >
+        {% for key, val in options.items() %}
+            {% set selected = 'selected' if key == default else '' %}
+            <option value="{{key}}" {{selected}}>{{val}}</option>
+        {% endfor %}
+    </select>
+{% endmacro %}

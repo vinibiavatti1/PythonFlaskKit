@@ -1,8 +1,8 @@
-{% macro map(width, height, lat, lng, zoom=15, points=[]) %}
-    <div id="leaflet-map" style="width: {{width}}; height: {{height}};"></div>
+{% macro map(id, width, height, lat, lng, zoom=15, points=[]) %}
+    <div id="{{id}}" style="width: {{width}}; height: {{height}};"></div>
     <script>
         $(document).ready(function () {
-            let map = L.map('leaflet-map').setView([{{lat}}, {{lng}}], {{zoom}});
+            let map = L.map('{{id}}').setView([{{lat}}, {{lng}}], {{zoom}});
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);

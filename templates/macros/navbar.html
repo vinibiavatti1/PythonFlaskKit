@@ -4,8 +4,9 @@
             <a class="brand-logo hide-on-small-only light" href="/">{{config.title}}</a>
             <div class="right">
                 <ul class="right">
-                    <li><a href="/locale/en_us" >EN-US</a></li>
-                    <li><a href="/locale/pt_br" >PT-BR</a></li>
+                    {% for locale in locales %}
+                        <li><a href="/locale/{{locale}}">{{locale | upper}}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

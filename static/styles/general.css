@@ -9,6 +9,9 @@ h1, h2, h3, h4, h5, h6 {
 hr {
     border-top: none;
 }
+main {
+    margin: 20px 0px;
+}
 
 /* Custom styles */
 html {
@@ -111,6 +114,9 @@ body {
 }
 
 /* Navbar */
+.sidenav {
+    z-index: 1001;
+}
 .sidenav-btn {
     padding: 5px 20px;
 }

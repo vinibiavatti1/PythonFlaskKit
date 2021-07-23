@@ -1,0 +1,28 @@
+{% from "macros/chart.html" import chart with context %}
+{% extends 'layout.html' %}
+{% block title %}Datatable{% endblock %}
+{% block content %}
+<div class="container">
+    <h5 class="white-text">Datatable Example</h5>
+    <div class="panel">
+        <table class="datatable striped">
+            <thead>
+                <tr>
+                    {% for header in headers %}
+                        <th>{{header}}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        {% for field in item %}
+                            <td>{{field | safe}}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

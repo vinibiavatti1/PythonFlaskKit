@@ -1,0 +1,26 @@
+{% from 'macros/alert.html' import alert %}
+{% extends 'layout.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div>
+    <div class="row">
+        <div class="col s12 m8 l6 offset-l3 offset-m2">
+            <br>
+            <form action="/login" method="POST">
+                <h5 class="white-text">Login</h5>
+                <div class="panel">
+                    {% for category, message in get_flashed_messages(with_categories=true) %}
+                        {{ alert(category, message) }}
+                    {% endfor %}
+                    E-mail
+                    <input type="email" class="form-control" id="email" placeholder="Put your e-mail" name="email" required="" value="admin@admin.com">
+                    Password
+                    <input type="password" class="form-control" id="password" placeholder="Put your password" name="password" required="" value="admin">
+                    <button type="submit" class="btn black">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

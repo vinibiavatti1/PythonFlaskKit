@@ -5,12 +5,12 @@
                 <div class="avatar-letters circle center white-text" style="width: 64px; height: 64px; background: deepblue;">AA</div>
             </li>
             <li class="user-data">
-                <div class="user-name">Admin</div>
-                <div class="user-name">admin@admin.com</div>
+                <div class="user-name">{{ session['user_name'] }}</div>
+                <div class="user-name">{{ session['user_email'] }}</div>
             </li>
         {% else %}
             <li class="center">
-                <h4 class="light white-text" style="margin: 15px 0px!important;">{{ config.title }}</h4>
+                <h5 class="light white-text" style="margin: 15px 0px!important;">{{ config.title }}</h5>
             </li>
         {% endif %}
         <li>
@@ -21,32 +21,16 @@
                 Menu
             </a>
         </li>
-        <li class="waves-effect waves-light">
-            <a href="#!">
-                <i class="mdi mdi-home mdi-24px"></i>
-                First Link With Icon
-            </a>
-        </li>
-        <li class="waves-effect waves-light">
-            <a href="#!">
-                <i class="mdi mdi-home mdi-24px"></i>
-                Second Link
-            </a>
-        </li>
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li>
-            <a class="subheader">
-                Others
-            </a>
-        </li>
-        <li class="waves-effect waves-light">
-            <a class="waves-effect" href="#!">
-                <i class="mdi mdi-home mdi-24px"></i>
-                Third Link With Waves
-            </a>
-        </li>
+        {% for option in menu %}
+            <li class="waves-effect waves-light">
+                <a href="{{option[1]}}">
+                    {% if option[2] %}
+                        <i class="mdi {{option[2]}} mdi-24px"></i>
+                    {% endif %}
+                    {{option[0]}}
+                </a>
+            </li>
+        {% endfor %}
     </ul>
     <script>
         $(document).ready(() => {

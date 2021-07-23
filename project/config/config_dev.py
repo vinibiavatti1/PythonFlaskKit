@@ -35,9 +35,8 @@ config = {
     # E-mail
     'mail_smtp': 'smtp.example.com',
     'mail_port': '465',
-    'mail_type': 'ssl',
-    'mail_sender': 'contact@company.com',
-    'mail_sender_name': 'username',
+    'mail_ssl': True,
+    'mail_login': 'contact@company.com',
     'mail_password': 'password',
     'mail_charset': 'UTF-8',
 }
