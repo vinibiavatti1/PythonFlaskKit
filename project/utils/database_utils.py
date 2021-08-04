@@ -1,10 +1,10 @@
-from datetime import datetime, date
 from project.config.config import config
 from project.errors import AppError
+from typing import Union, Any, NoReturn
 import mysql.connector
 
 
-def connect():
+def connect() -> object:
     """
     Connect to MySQL database and return the connection object.
     The connection data will be get from app configuration
@@ -21,17 +21,24 @@ def connect():
     return connection
 
 
-def execute_query(sql, values=()):
+def execute_query(sql: str, values: tuple = (), *,
+                  first_or_none: bool = False) -> Union[list, dict]:
     """
     Execute a SQL query and fetch the returned data
     """
     connection = connect()
     cursor = connection.cursor(dictionary=True)
     cursor.execute(sql, values)
-    return cursor.fetchall()
+    result_set = cursor.fetchall()
+    if first_or_none:
+        if len(result_set):
+            return result_set[0]
+        return None
+    return result_set
 
 
-def execute_query_paginated(sql, page, page_size, values=()):
+def execute_paginated_query(sql: str, page: int, page_size: int,
+                            values: tuple = ()) -> list:
     """
     Execute a statement adding the LIMIT control by page and page_size. The
     return will be a dict containing the fetch data and pagination properties
@@ -49,7 +56,7 @@ def execute_query_paginated(sql, page, page_size, values=()):
     )
 
 
-def execute(sql, values=()):
+def execute(sql: str, values: tuple = ()) -> None:
     """
     Execute a transactional statement into database
     """
@@ -59,7 +66,7 @@ def execute(sql, values=()):
     connection.commit()
 
 
-def count_table(table_name):
+def count_table(table_name: str) -> int:
     """
     Return the record amount of table. If table was not found, None will be
     returned
@@ -67,13 +74,12 @@ def count_table(table_name):
     result_set = execute_query(
         f'SELECT COUNT(*) AS amount FROM `{table_name}`'
     )
-    print(result_set)
     if len(result_set) > 0:
         return result_set[0]['amount']
     return None
 
 
-def record_exists(table_name, id, field='id'):
+def record_exists(table_name: str, id: int, field: str = 'id') -> bool:
     """
     Return True if the record with identifier was found in table, otherwise
     False
@@ -85,7 +91,7 @@ def record_exists(table_name, id, field='id'):
     return len(result_set) > 0
 
 
-def last_inserted_record(table_name, order_column='id'):
+def last_inserted_record(table_name: str, order_column: str = 'id') -> dict:
     """
     Return the last inserted record by column ordering. If the table is empty
     or not find, None will be returned
@@ -98,7 +104,7 @@ def last_inserted_record(table_name, order_column='id'):
     return None
 
 
-def last_inserted_id(table_name, id_column='id'):
+def last_inserted_id(table_name: str, id_column: str = 'id') -> Any:
     """
     Return the last inserted identifier by id column ordering. If the table is
     empty or not find, None will be returned
@@ -107,48 +113,16 @@ def last_inserted_id(table_name, id_column='id'):
         f'SELECT `{id_column}` AS id FROM `{table_name}` ORDER BY ' +
         f'`{id_column}` DESC LIMIT 1'
     )
-    if len(result_set) > 0:
+    if len(result_set):
         return result_set[0]['id']
     return None
 
 
-def describe_table(table_name):
+def describe_table(table_name: str) -> dict:
     """
     Describe table and return the table data
     """
-    return execute_query(f'DESC `{table_name}`')
-
-
-def format_date_fields(result_set, *, date_format, datetime_format):
-    """
-    Convert the database result set date and datetime to string
-    """
-    for record in result_set:
-        for key, val in record.items():
-            if isinstance(val, datetime):
-                record[key] = val.strftime(datetime_format)
-            elif isinstance(val, date):
-                record[key] = val.strftime(date_format)
-    return result_set
-
-
-def format_date_fields_to_html_format(result_set):
-    """
-    Format result set date fields to HTML format (RFC 3339)
-    """
-    return format_date_fields(
-        result_set,
-        date_format='%Y-%m-%d',
-        datetime_format='%Y-%m-%dT%H:%M'
-    )
-
-
-def format_date_fields_to_config_format(result_set):
-    """
-    Format result set date fields to the format defined in app configuration
-    """
-    return format_date_fields(
-        result_set,
-        date_format=config['date_format'],
-        datetime_format=config['datetime_format']
-    )
+    result_set = execute_query(f'DESC `{table_name}`')
+    if len(result_set):
+        return result_set[0]
+    return None

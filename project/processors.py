@@ -1,9 +1,10 @@
-from project.services.auth_service import is_authenticated
+from project.utils.security_utils import is_authenticated, has_permission
 from flask import Blueprint
 from project.config.config import config
 from project.utils.translation_utils import get_dictionary
-from project.dictionaries.registry import dictionaries
-from project.menus.registry import menus
+from project.dictionaries import dictionaries
+from project import menus
+from project.enums import permission_enum
 
 
 # Blueprint
@@ -27,33 +28,42 @@ def inject_configuration():
 def inject_dictionary():
     """
     Inject the dictionary by the defined locale in cookies
-    If no locale was defined, the default dictionary will be used
+    If no locale was defined, the default dictionary will be used. If the flag
+    "i18n" in config is defined to False, the dictionary will not be injected
     """
+    if not config['i18n']:
+        return
     dictionary = get_dictionary()
     locales = [k for k in dictionaries.keys() if k != 'default']
     return dict(
         dictionary=dictionary,
+        i18n=dictionary,
         locales=locales
     )
 
 
 @blueprint.app_context_processor
-def inject_common_functions():
+def inject_functions():
     """
     Inject common functions to be used in Jinja templates
     """
     return dict(
+        isinstance=isinstance,
         zip=zip,
         is_authenticated=is_authenticated
     )
 
 
 @blueprint.app_context_processor
-def inject_menus():
+def inject_menu():
     """
     Inject the sidenav menus by user authentication
     """
-    for menu in menus.values():
-        if menu.rule():
-            options = menu.build().get_options()
-            return dict(menu=options)
+    menu = None
+    if has_permission(permission_enum.ADMIN):
+        menu = menus.build_admin_manu()
+    elif has_permission(permission_enum.MEMBER):
+        menu = menus.build_private_menu()
+    else:
+        menu = menus.build_public_menu()
+    return dict(menu=menu)

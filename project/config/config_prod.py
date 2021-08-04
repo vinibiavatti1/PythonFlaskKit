@@ -15,8 +15,11 @@ config = {
     'favicon16': '/static/images/favicon-16x16.png',
     'favicon32': '/static/images/favicon-32x32.png',
 
-    # Locale
+    # i18n
+    'i18n': True,
     'idiom': 'en_US',
+
+    # Datetime and region
     'timezone': 'UTC',
     'date_format': '%Y-%m-%d',
     'date_time_format': '%Y-%m-%d %H:%M:%S',

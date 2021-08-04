@@ -17,7 +17,7 @@ blueprint = Blueprint('auth', __name__)
 
 @blueprint.route('/login', methods=['GET'])
 def login():
-    return render_template('/auth/login.html')
+    return render_template('/public/login.html')
 
 
 @blueprint.route('/login', methods=['POST'])
@@ -27,7 +27,7 @@ def login_action():
         auth_validator.validate_login_data(request.form)
     except ValidationError as err:
         flash(err, category='error')
-        return render_template('/auth/login.html')
+        return render_template('/public/login.html')
 
     # Do login
     email = escape(request.form.get('email'))
@@ -35,10 +35,10 @@ def login_action():
     if auth_service.do_login(email, password):
         return redirect('/')
     flash('Invalid user and/or password', category='error')
-    return render_template('/auth/login.html')
+    return render_template('/public/login.html')
 
 
 @blueprint.route('/logout')
 def logout():
     auth_service.do_logout()
-    return render_template('/home/homepage.html')
+    return render_template('/public/homepage.html')

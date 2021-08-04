@@ -1,8 +1,15 @@
 {% from "macros/chart.html" import chart with context %}
+{% from "macros/alerts.html" import alerts with context %}
 {% extends 'layout.html' %}
 {% block title %}Datatable{% endblock %}
 {% block content %}
 <div class="container">
+    <h5 class="white-text">{{ dictionary.general.actions }}</h5>
+    <div class="panel">
+        {{ alerts() }}
+        <a href="/admin/form" class="btn black">{{ dictionary.actions.add }}</a>
+    </div>
+
     <h5 class="white-text">Datatable Example</h5>
     <div class="panel">
         <table class="datatable striped">

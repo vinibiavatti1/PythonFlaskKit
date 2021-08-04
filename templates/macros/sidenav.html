@@ -13,15 +13,8 @@
                 <h5 class="light white-text" style="margin: 15px 0px!important;">{{ config.title }}</h5>
             </li>
         {% endif %}
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li>
-            <a class="subheader">
-                Menu
-            </a>
-        </li>
         {% for option in menu %}
+            {% if option is not string %}
             <li class="waves-effect waves-light">
                 <a href="{{option[1]}}">
                     {% if option[2] %}
@@ -30,6 +23,16 @@
                     {{option[0]}}
                 </a>
             </li>
+            {% else %}
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <a class="subheader">
+                    {{option}}
+                </a>
+            </li>
+            {% endif %}
         {% endfor %}
     </ul>
     <script>

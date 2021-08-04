@@ -3,15 +3,34 @@ dictionary = {
     'general': {
         'yes': 'Yes',
         'no': 'No',
-        'credits': 'Made with ♥ by PythonFlaskKit'
+        'credits': 'Made with ♥ by PythonFlaskKit',
+        'actions': 'Actions',
+        'form': 'Form'
+    },
+    'feedbacks': {
+        'success': 'Action successfull',
+        'error': 'An error ocurred to execute this action',
+        'invalid': 'Invalid value for field: {}',
+        'required': '{} must be set'
+    },
+    'actions': {
+        'save': 'Save',
+        'back': 'Back',
+        'add': 'Add',
+        'details': 'Details',
+        'cancel': 'Cancel',
     },
     'menus': {
+        'titles': {
+            'menu': 'Menu',
+            'user': 'User'
+        },
         'homepage': 'Homepage',
         'login': 'Login',
         'map': 'Map',
         'chart': 'Chart',
-        'datatable': 'Datatable',
-        'crud': 'Crud',
+        'list': 'List',
+        'form': 'Form',
         'logout': 'Logout',
     },
     'homepage': {
@@ -25,7 +44,7 @@ dictionary = {
         'bad_request': 'The server could not process the request',
         'internal_server_error': 'An internal server error ocurred'
     },
-    'cruds': {
+    'forms': {
         'example': {
             'f1': {
                 'label': 'Text field',
@@ -47,7 +66,10 @@ dictionary = {
             },
             'f6': {
                 'label': 'Select field'
-            }
-        }
+            },
+            'f7': {
+                'label': 'file field'
+            },
+        },
     },
 }

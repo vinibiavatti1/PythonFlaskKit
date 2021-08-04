@@ -3,15 +3,34 @@ dictionary = {
     'general': {
         'yes': 'Sim',
         'no': 'Não',
-        'credits': 'Feito com ♥ por PythonFlaskKit'
+        'credits': 'Feito com ♥ por PythonFlaskKit',
+        'actions': 'Ações',
+        'form': 'Formulário',
+    },
+    'feedbacks': {
+        'success': 'Ação realizada com sucesso',
+        'error': 'Um erro ocorreu ao realizar esta ação',
+        'invalid': 'Valor inválido para o campo: {}',
+        'required': '{} precisa ser definido'
+    },
+    'actions': {
+        'save': 'Salvar',
+        'back': 'Voltar',
+        'add': 'Add',
+        'details': 'Detalhes',
+        'cancel': 'Cancelar',
     },
     'menus': {
+        'titles': {
+            'menu': 'Menu',
+            'user': 'Usuário'
+        },
         'homepage': 'Homepage',
         'login': 'Login',
         'map': 'Mapa',
         'chart': 'Gráfico',
-        'datatable': 'Tabela de Dados',
-        'crud': 'Crud',
+        'list': 'Lista',
+        'form': 'Formulário',
         'logout': 'Sair',
     },
     'homepage': {
@@ -48,7 +67,10 @@ dictionary = {
             },
             'f6': {
                 'label': 'Campo de seleção'
-            }
+            },
+            'f7': {
+                'label': 'Campo de arquivo'
+            },
         }
     },
 }

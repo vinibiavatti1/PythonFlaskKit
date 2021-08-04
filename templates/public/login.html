@@ -1,4 +1,4 @@
-{% from 'macros/alert.html' import alert %}
+{% from 'macros/alerts.html' import alerts %}
 {% extends 'layout.html' %}
 {% block title %}Login{% endblock %}
 {% block content %}
@@ -9,9 +9,7 @@
             <form action="/login" method="POST">
                 <h5 class="white-text">Login</h5>
                 <div class="panel">
-                    {% for category, message in get_flashed_messages(with_categories=true) %}
-                        {{ alert(category, message) }}
-                    {% endfor %}
+                    {{ alerts() }}
                     E-mail
                     <input type="email" class="form-control" id="email" placeholder="Put your e-mail" name="email" required="" value="admin@admin.com">
                     Password

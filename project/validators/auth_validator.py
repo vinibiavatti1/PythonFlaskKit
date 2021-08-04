@@ -1,7 +1,7 @@
 from project.errors import ValidationError
 
 
-def validate_login_data(form_data):
+def validate_login_data(form_data: dict) -> None:
     """
     Validate form data for login route (example)
     """

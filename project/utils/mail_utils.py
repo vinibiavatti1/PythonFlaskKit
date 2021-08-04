@@ -6,7 +6,8 @@ from email.mime.text import MIMEText
 from project.config import config
 
 
-def send_mail(from_mail, to_mail, subject, message, is_html):
+def send_mail(from_mail: str, to_mail: str, subject: str, message: str,
+              is_html: bool) -> None:
     """
     Send email using the config parameters
     """
@@ -38,14 +39,16 @@ def send_mail(from_mail, to_mail, subject, message, is_html):
         current_app.logger.error(msg)
 
 
-def send_html_mail(from_mail, to_mail, subject, message):
+def send_html_mail(from_mail: str, to_mail: str, subject: str,
+                   message: str) -> None:
     """
     Wrapper to send_mail(..., html=True)
     """
     send_mail(from_mail, to_mail, subject, message, True)
 
 
-def send_text_mail(from_mail, to_mail, subject, message):
+def send_text_mail(from_mail: str, to_mail: str, subject: str,
+                   message: str) -> None:
     """
     Wrapper to send_mail(..., html=False)
     """

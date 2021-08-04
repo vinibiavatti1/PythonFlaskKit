@@ -1,10 +1,9 @@
 from flask import Blueprint, render_template
 from project.utils.security_utils import login_required
-import json
 
 
 # Blueprint
-blueprint = Blueprint('datatable', __name__)
+blueprint = Blueprint('list', __name__)
 
 
 ###############################################################################
@@ -14,7 +13,7 @@ blueprint = Blueprint('datatable', __name__)
 
 @blueprint.route('/')
 @login_required()
-def index():
+def index() -> str:
     headers = ['#', 'Product', 'Location', 'Price', 'Actions']
     data = [
         (1, 'Laptop', 'Lisbon', '$ 999.00', '<a href="#!">Details</a>'),
@@ -24,7 +23,7 @@ def index():
         (5, 'Guitar', 'London', '$ 80.00', '<a href="#!">Details</a>'),
     ]
     return render_template(
-        '/backoffice/datatable.html',
+        '/admin/list.html',
         headers=headers,
         data=data
     )

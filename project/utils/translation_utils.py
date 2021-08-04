@@ -1,5 +1,5 @@
 from project.errors import TranslationError
-from project.dictionaries.registry import dictionaries
+from project.dictionaries import dictionaries
 from flask import request
 from typing import Union
 
@@ -38,3 +38,10 @@ def translate(key: Union[tuple, str], locale: str = None) -> str:
             f'Invalid key "{str(key)}"'
         )
     return sentence
+
+
+def t(key: Union[tuple, str], locale: str = None) -> str:
+    """
+    Alias to translate(key, locale)
+    """
+    return translate(key, locale)

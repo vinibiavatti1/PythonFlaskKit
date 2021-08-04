@@ -21,3 +21,9 @@
         </div>
     {% endif %}
 {% endmacro %}
+
+{% macro alerts() %}
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+        {{ alert(category, message) }}
+    {% endfor %}
+{% endmacro %}

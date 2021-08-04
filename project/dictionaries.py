@@ -1,4 +1,4 @@
-from project.dictionaries import (
+from project.idioms import (
     en_us,
     pt_br
 )

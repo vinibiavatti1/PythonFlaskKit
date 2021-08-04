@@ -4,7 +4,7 @@ Repositories are used to control the database directly
 from project.utils import database_utils
 
 
-def insert(name, email, password):
+def insert(name: str, email: str, password: str):
     """
     Insert a new user (example)
     """

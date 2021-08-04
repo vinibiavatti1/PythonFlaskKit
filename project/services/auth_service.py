@@ -1,16 +1,8 @@
 from flask import session
-from project.enums import session_enum
-from project.enums.session_enum import USER_ID
+from project.enums import session_enum, permission_enum
 
 
-def is_authenticated():
-    """
-    Return true if the user is authenticated in the application
-    """
-    return USER_ID in session and len(session[USER_ID]) > 0
-
-
-def do_login(email, password):
+def do_login(email: str, password: str) -> bool:
     """
     Authenticate user to application
     """
@@ -19,10 +11,11 @@ def do_login(email, password):
     session[session_enum.USER_ID] = email
     session[session_enum.USER_NAME] = 'admin'
     session[session_enum.USER_EMAIL] = email
+    session[session_enum.USER_PERMISSION] = permission_enum.ADMIN
     return True
 
 
-def do_logout():
+def do_logout() -> None:
     """
     Destroy user session
     """

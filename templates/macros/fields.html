@@ -1,22 +1,29 @@
-{% macro text_field(id, name, label, placeholder='', required=True,
+{% macro text_field(id, label, name='', placeholder='', required=True,
                     css_class='', disabled=False, default='') %}
-    <span>{{label}}</span>
+    <span>
+        {{label}}
+        {% if required %}<span class="required">*</span>{% endif %}
+    </span>
     <input
         type="text",
         id="{{id}}"
-        name="{{name}}"
         value="{{default}}"
         class="{{css_class}}"
         placeholder="{{placeholder}}"
+        {% if name %}name="{{name}}"{% endif %}
         {% if disabled %}disabled{% endif %}
         {% if required %}required{% endif %}
     >
 {% endmacro %}
 
-{% macro numeric_field(id, name, label, placeholder='', required=True,
+
+{% macro numeric_field(id, label, name='', placeholder='', required=True,
                        css_class='', disabled=False, default='', min_value=0,
                        max_value=100, step_value=1) %}
-    <span>{{label}}</span>
+    <span>
+        {{label}}
+        {% if required %}<span class="required">*</span>{% endif %}
+    </span>
     <input
         type="number",
         id="{{id}}"
@@ -32,9 +39,13 @@
     >
 {% endmacro %}
 
-{% macro textarea_field(id, name, label, placeholder='', required=True,
+
+{% macro textarea_field(id, label, name='', placeholder='', required=True,
                         css_class='', disabled=False, default='') %}
-    <span>{{label}}</span>
+    <span>
+        {{label}}
+        {% if required %}<span class="required">*</span>{% endif %}
+    </span>
     <textarea
         id="{{id}}"
         name="{{name}}"
@@ -45,39 +56,49 @@
     >{{default}}</textarea>
 {% endmacro %}
 
-{% macro date_field(id, name, label, placeholder='', required=True,
-                    css_class='', disabled=False, default='') %}
-    <span>{{label}}</span>
+
+{% macro date_field(id, label, name='', required=True, css_class='',
+                    disabled=False, default='') %}
+    <span>
+        {{label}}
+        {% if required %}<span class="required">*</span>{% endif %}
+    </span>
     <input
         type="date",
         id="{{id}}"
         name="{{name}}"
         value="{{default}}"
         class="{{css_class}}"
-        placeholder="{{placeholder}}"
         {% if disabled %}disabled{% endif %}
         {% if required %}required{% endif %}
     >
 {% endmacro %}
 
-{% macro datetime_field(id, name, label, placeholder='', required=True,
-                        css_class='', disabled=False, default='') %}
-    <span>{{label}}</span>
+
+{% macro datetime_field(id, label, name='', required=True, css_class='',
+                        disabled=False, default='') %}
+    <span>
+        {{label}}
+        {% if required %}<span class="required">*</span>{% endif %}
+    </span>
     <input
         type="datetime-local",
         id="{{id}}"
         name="{{name}}"
         value="{{default}}"
         class="{{css_class}}"
-        placeholder="{{placeholder}}"
         {% if disabled %}disabled{% endif %}
         {% if required %}required{% endif %}
     >
 {% endmacro %}
 
-{% macro select_field(id, name, label, placeholder='', required=True,
-                      css_class='', disabled=False, default='', options={}) %}
-    <span>{{label}}</span>
+
+{% macro select_field(id, label, name='', required=True, css_class='',
+                      disabled=False, default='', options={}) %}
+    <span>
+        {{label}}
+        {% if required %}<span class="required">*</span>{% endif %}
+    </span>
     <select
         id="{{id}}"
         name="{{name}}"
@@ -90,4 +111,23 @@
             <option value="{{key}}" {{selected}}>{{val}}</option>
         {% endfor %}
     </select>
+{% endmacro %}
+
+
+{% macro file_field(id, label, name='', required=True, css_class='',
+                    disabled=False, multiple=False) %}
+    <div>
+        {{label}}
+        {% if required %}<span class="required">*</span>{% endif %}
+    </div>
+    <input
+        type="file",
+        id="{{id}}"
+        name="{{name}}"
+        value="{{default}}"
+        class="{{css_class}}"
+        {% if multiple %}multiple{% endif %}
+        {% if disabled %}disabled{% endif %}
+        {% if required %}required{% endif %}
+    >
 {% endmacro %}

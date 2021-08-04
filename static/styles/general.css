@@ -22,6 +22,7 @@ html {
     background-attachment: fixed;
 }
 select {
+    margin-bottom: 8px;
     border: 1px solid #9e9e9e !important;
 }
 .card-content {
@@ -45,6 +46,11 @@ code {
 }
 
 /* Input styles */
+input[type=file] {
+    margin-bottom: 8px;
+    display: block;
+    width: 100%;
+}
 input[type=month],
 input[type=week] {
     display: block;
@@ -72,6 +78,7 @@ textarea:focus {
 }
 textarea {
     height: 150px !important;
+    margin-bottom: 8px;
 }
 
 /* Table styles */
