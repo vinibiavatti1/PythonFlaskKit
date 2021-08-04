@@ -1,3 +1,4 @@
+{# Text field #}
 {% macro text_field(id, label, name='', placeholder='', required=True,
                     css_class='', disabled=False, default='') %}
     <span>
@@ -16,7 +17,7 @@
     >
 {% endmacro %}
 
-
+{# Numeric Field #}
 {% macro numeric_field(id, label, name='', placeholder='', required=True,
                        css_class='', disabled=False, default='', min_value=0,
                        max_value=100, step_value=1) %}
@@ -39,7 +40,7 @@
     >
 {% endmacro %}
 
-
+{# Textarea #}
 {% macro textarea_field(id, label, name='', placeholder='', required=True,
                         css_class='', disabled=False, default='') %}
     <span>
@@ -56,7 +57,7 @@
     >{{default}}</textarea>
 {% endmacro %}
 
-
+{# Date field #}
 {% macro date_field(id, label, name='', required=True, css_class='',
                     disabled=False, default='') %}
     <span>
@@ -74,7 +75,7 @@
     >
 {% endmacro %}
 
-
+{# Datetime field #}
 {% macro datetime_field(id, label, name='', required=True, css_class='',
                         disabled=False, default='') %}
     <span>
@@ -92,7 +93,7 @@
     >
 {% endmacro %}
 
-
+{# Select field #}
 {% macro select_field(id, label, name='', required=True, css_class='',
                       disabled=False, default='', options={}) %}
     <span>
@@ -113,7 +114,7 @@
     </select>
 {% endmacro %}
 
-
+{# File field #}
 {% macro file_field(id, label, name='', required=True, css_class='',
                     disabled=False, multiple=False) %}
     <div>

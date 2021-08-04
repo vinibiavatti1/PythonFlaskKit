@@ -5,7 +5,8 @@ dictionary = {
         'no': 'No',
         'credits': 'Made with ♥ by PythonFlaskKit',
         'actions': 'Actions',
-        'form': 'Form'
+        'form': 'Form',
+        'welcome': 'Welcome!',
     },
     'feedbacks': {
         'success': 'Action successfull',
@@ -68,7 +69,7 @@ dictionary = {
                 'label': 'Select field'
             },
             'f7': {
-                'label': 'file field'
+                'label': 'File field'
             },
         },
     },

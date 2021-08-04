@@ -16,8 +16,8 @@ blueprint = Blueprint('chart', __name__)
 @login_required()
 def index() -> str:
     chart_data = {
-        'labels': ['January', 'February', 'March', 'April', 'May', 'June',
-                   'July'],
+        'labels': ('January', 'February', 'March', 'April', 'May', 'June',
+                   'July'),
         'datasets': [{
             'label': 'Data',
             'data': (2, 5, 1, 10, 4, 7, 6),

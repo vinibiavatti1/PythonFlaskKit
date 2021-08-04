@@ -6,6 +6,7 @@ dictionary = {
         'credits': 'Feito com ♥ por PythonFlaskKit',
         'actions': 'Ações',
         'form': 'Formulário',
+        'welcome': 'Bem vindo!',
     },
     'feedbacks': {
         'success': 'Ação realizada com sucesso',

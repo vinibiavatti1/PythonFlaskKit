@@ -1,3 +1,4 @@
+{% from "macros/toastr.html" import toastr %}
 {% extends 'layout.html' %}
 {% block title %}Homepage{% endblock %}
 {% block content %}
@@ -8,4 +9,7 @@
         <h6 class="light center white-text">{{dictionary.homepage.subtitle}}</h6>
     </div>
 </div>
+{% if is_authenticated() %}
+    {{ toastr('success', dictionary.general.welcome) }}
+{% endif %}
 {% endblock %}
