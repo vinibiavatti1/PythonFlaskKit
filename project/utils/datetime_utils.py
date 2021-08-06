@@ -1,6 +1,6 @@
 from typing import Union, Any
 from datetime import date, datetime
-from project.config.config import config
+from project.config import config
 
 
 ###############################################################################

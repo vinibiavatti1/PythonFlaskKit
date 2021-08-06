@@ -1,6 +1,6 @@
 from project.utils.security_utils import is_authenticated, has_permission
 from flask import Blueprint
-from project.config.config import config
+from project.config import config
 from project.utils.translation_utils import get_dictionary
 from project.dictionaries import dictionaries
 from project import menus

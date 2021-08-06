@@ -7,7 +7,7 @@ from project.enums import session_enum
 from flask import session
 from typing import Callable
 from hashlib import sha256
-from project.config.config import config
+from project.config import config
 from project.services.user_service import is_user_active
 from project.services.auth_service import do_logout
 

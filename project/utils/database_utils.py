@@ -1,4 +1,4 @@
-from project.config.config import config
+from project.config import config
 from project.errors import AppError
 from typing import Union, Any, NoReturn
 import mysql.connector
