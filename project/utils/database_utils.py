@@ -7,7 +7,7 @@ import mysql.connector
 def connect() -> object:
     """
     Connect to MySQL database and return the connection object.
-    The connection data will be get from app configuration
+    The connection data will be get from app configuration.
     """
     connection = mysql.connector.connect(
         host=config['db_host'],
@@ -24,7 +24,7 @@ def connect() -> object:
 def execute_query(sql: str, values: tuple = (), *,
                   first_or_none: bool = False) -> Union[list, dict]:
     """
-    Execute a SQL query and fetch the returned data
+    Execute a SQL query and fetch the returned data.
     """
     connection = connect()
     cursor = connection.cursor(dictionary=True)
@@ -41,7 +41,7 @@ def execute_paginated_query(sql: str, page: int, page_size: int,
                             values: tuple = ()) -> list:
     """
     Execute a statement adding the LIMIT control by page and page_size. The
-    return will be a dict containing the fetch data and pagination properties
+    return will be a dict containing the fetch data and pagination properties.
     """
     sql_check = sql + f' LIMIT {page + 1},{page_size}'
     result_set = execute_query(sql_check, values)
@@ -58,7 +58,7 @@ def execute_paginated_query(sql: str, page: int, page_size: int,
 
 def execute(sql: str, values: tuple = ()) -> None:
     """
-    Execute a transactional statement into database
+    Execute a transactional statement into database.
     """
     connection = connect()
     cursor = connection.cursor()
@@ -69,7 +69,7 @@ def execute(sql: str, values: tuple = ()) -> None:
 def count_table(table_name: str) -> int:
     """
     Return the record amount of table. If table was not found, None will be
-    returned
+    returned.
     """
     result_set = execute_query(
         f'SELECT COUNT(*) AS amount FROM `{table_name}`'
@@ -82,7 +82,7 @@ def count_table(table_name: str) -> int:
 def record_exists(table_name: str, id: int, field: str = 'id') -> bool:
     """
     Return True if the record with identifier was found in table, otherwise
-    False
+    False.
     """
     result_set = execute_query(
         f'SELECT `{field}` FROM `{table_name}` WHERE id = %s',
@@ -94,7 +94,7 @@ def record_exists(table_name: str, id: int, field: str = 'id') -> bool:
 def last_inserted_record(table_name: str, order_column: str = 'id') -> dict:
     """
     Return the last inserted record by column ordering. If the table is empty
-    or not find, None will be returned
+    or not find, None will be returned.
     """
     result_set = execute_query(
         f'SELECT * FROM `{table_name}` ORDER BY `{order_column}` DESC LIMIT 1'
@@ -107,11 +107,11 @@ def last_inserted_record(table_name: str, order_column: str = 'id') -> dict:
 def last_inserted_id(table_name: str, id_column: str = 'id') -> Any:
     """
     Return the last inserted identifier by id column ordering. If the table is
-    empty or not find, None will be returned
+    empty or not find, None will be returned.
     """
     result_set = execute_query(
-        f'SELECT `{id_column}` AS id FROM `{table_name}` ORDER BY ' +
-        f'`{id_column}` DESC LIMIT 1'
+        f'SELECT `{id_column}` AS id FROM `{table_name}` ORDER BY \
+        `{id_column}` DESC LIMIT 1'
     )
     if len(result_set):
         return result_set[0]['id']
@@ -120,9 +120,21 @@ def last_inserted_id(table_name: str, id_column: str = 'id') -> Any:
 
 def describe_table(table_name: str) -> dict:
     """
-    Describe table and return the table data
+    Describe table and return the table data.
     """
     result_set = execute_query(f'DESC `{table_name}`')
     if len(result_set):
         return result_set[0]
     return None
+
+
+def is_record_from_user(table_name: str, user_id: int, record_id: int, *,
+                        user_id_column: str = 'user_id',
+                        id_column: str = 'id') -> bool:
+    """
+    Return True if the user is owner of the record, otherwise False.
+    """
+    sql = f'SELECT {id_column} FROM `{table_name}` \
+        WHERE `{user_id_column}` = %s AND `{id_column}` = %s'
+    result_set = execute_query(sql, (user_id, record_id))
+    return len(result_set) > 0

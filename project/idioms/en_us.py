@@ -12,7 +12,7 @@ dictionary = {
         'success': 'Action successfull',
         'error': 'An error ocurred to execute this action',
         'invalid': 'Invalid value for field: {}',
-        'required': '{} must be set'
+        'required': '{} must be set',
     },
     'actions': {
         'save': 'Save',
@@ -43,7 +43,8 @@ dictionary = {
         'forbidden': 'Forbidden access',
         'unauthorized': 'You must be authenticated to access this content',
         'bad_request': 'The server could not process the request',
-        'internal_server_error': 'An internal server error ocurred'
+        'internal_server_error': 'An internal server error ocurred',
+        'session_expired': 'Session expired. Please, do login again',
     },
     'forms': {
         'example': {

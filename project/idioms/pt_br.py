@@ -45,6 +45,8 @@ dictionary = {
                         'conteúdo',
         'bad_request': 'O servidor não conseguiu processar a requisição',
         'internal_server_error': 'Ocorreu um erro interno no servidor',
+        'session_expired': 'Sessão expirada. Por favor, faça a autenticação '
+                           'novamente',
     },
     'cruds': {
         'example': {

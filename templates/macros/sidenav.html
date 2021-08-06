@@ -2,7 +2,9 @@
     <ul id="sidenav" class="sidenav">
         {% if is_authenticated() %}
             <li class="center">
-                <div class="avatar-letters circle center white-text" style="width: 64px; height: 64px; background: deepblue;">AA</div>
+                <div class="avatar-letters circle center white-text" style="width: 64px; height: 64px; background: deepblue;">
+                    {{ session['user_abbreviation'] }}
+                </div>
             </li>
             <li class="user-data">
                 <div class="user-name">{{ session['user_name'] }}</div>

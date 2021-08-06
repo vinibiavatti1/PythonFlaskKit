@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from json import dumps
-from project.utils.security_utils import login_required
+from project.utils.security_utils import login_required, validate_user_in_db
 
 
 # Blueprint
