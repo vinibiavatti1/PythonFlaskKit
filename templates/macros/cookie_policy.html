@@ -1,0 +1,27 @@
+{% macro cookie_policy() %}
+    <div id="cookie-policy-modal" class="modal">
+        <div class="modal-content">
+            <h4>{{ dictionary.cookie_policy.title }}</h4>
+            <p>{{ dictionary.cookie_policy.content }}</p>
+        </div>
+        <div class="modal-footer">
+            <a href="javascript:void(0)" class="modal-close waves-effect waves-red btn-flat">
+                {{ dictionary.cookie_policy.close }}
+            </a>
+            <a href="/cookie-policy/disagree" class="modal-close waves-effect waves-red btn-flat">
+                {{ dictionary.cookie_policy.disagree }}
+            </a>
+            <a href="/cookie-policy/agree" class="modal-close waves-effect waves-green btn-flat">
+                {{ dictionary.cookie_policy.agree }}
+            </a>
+        </div>
+    </div>
+    <script>
+        $(document).ready(() => {
+            $("#cookie-policy-modal").modal();
+            {% if cookie_policy_accepted is none %}
+                $("#cookie-policy-modal").modal('open');
+            {% endif %}
+        });
+    </script>
+{% endmacro %}

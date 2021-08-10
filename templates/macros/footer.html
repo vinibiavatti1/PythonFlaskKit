@@ -2,7 +2,19 @@
     <div class="footer translucent">
         <div class="container">
             {{ dictionary.general.credits }}
-            <a class="right" href="https://github.com/vinibiavatti1/PythonFlaskKit">Github repository</a>
+            <a id="cookie-policy-btn" class="right" style="margin-right: 15px;" href="javascript:void(0)">
+                {{ dictionary.footer.cookie_policy }}
+            </a>
+            <a id="github-btn" class="right" style="margin-right: 15px;" href="https://github.com/vinibiavatti1/PythonFlaskKit">
+                {{ dictionary.footer.github_repository }}
+            </a>
         </div>
     </div>
+    <script>
+        $(document).ready(() => {
+            $('#cookie-policy-btn').click(() => {
+                $("#cookie-policy-modal").modal('open');
+            });
+        });
+    </script>
 {% endmacro %}

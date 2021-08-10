@@ -1,4 +1,5 @@
 from project.utils.security_utils import is_authenticated, has_permission
+from project.utils.cookie_utils import cookie_policy_accepted
 from flask import Blueprint
 from project.config import config
 from project.utils.translation_utils import get_dictionary
@@ -43,14 +44,15 @@ def inject_dictionary():
 
 
 @blueprint.app_context_processor
-def inject_functions():
+def inject_resources():
     """
-    Inject common functions to be used in Jinja templates
+    Inject common resources to be used in Jinja templates
     """
     return dict(
         isinstance=isinstance,
         zip=zip,
-        is_authenticated=is_authenticated
+        is_authenticated=is_authenticated,
+        cookie_policy_accepted=cookie_policy_accepted()
     )
 
 

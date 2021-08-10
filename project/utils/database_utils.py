@@ -1,6 +1,6 @@
 from project.config import config
 from project.errors import AppError
-from typing import Union, Any, NoReturn
+from typing import Union, Any
 import mysql.connector
 
 

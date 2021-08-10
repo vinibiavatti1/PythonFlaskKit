@@ -5,6 +5,7 @@ from project.controllers.public import (
     auth_ctrl,
     homepage_ctrl,
     locale_ctrl,
+    cookie_policy_ctrl
 )
 from project.controllers.admin import (
     map_ctrl,
@@ -44,4 +45,7 @@ def register_blueprints(app: Flask) -> None:
     )
     app.register_blueprint(
         form_ctrl.blueprint, url_prefix='/admin/form'
+    )
+    app.register_blueprint(
+        cookie_policy_ctrl.blueprint, url_prefix='/cookie-policy'
     )

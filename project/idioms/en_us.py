@@ -38,6 +38,10 @@ dictionary = {
         'title': 'Python Flask Kit',
         'subtitle': 'Starter kit for Python Flask projects',
     },
+    'footer': {
+        'cookie_policy': 'Cookie Policy',
+        'github_repository': 'Github Repository',
+    },
     'errors': {
         'not_found': 'Sorry, this page is unavailable',
         'forbidden': 'Forbidden access',
@@ -45,6 +49,17 @@ dictionary = {
         'bad_request': 'The server could not process the request',
         'internal_server_error': 'An internal server error ocurred',
         'session_expired': 'Session expired. Please, do login again',
+    },
+    'cookie_policy': {
+        'title': 'Cookie Policy',
+        'content': 'We use cookies to improve user experience, and analyze '
+                   'website traffic. For these reasons, we may share your '
+                   'site usage data with our analytics partners. By clicking '
+                   '"Agree" you consent to store on your device all the '
+                   'technologies described in our Cookie Policy',
+        'agree': 'Agree',
+        'disagree': 'Disagree',
+        'close': 'Close',
     },
     'forms': {
         'example': {

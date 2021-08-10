@@ -3,6 +3,7 @@
 {% from "macros/datatables.html" import datatables_script with context %}
 {% from "macros/footer.html" import footer with context %}
 {% from "macros/headers.html" import metas, styles, scripts with context %}
+{% from "macros/cookie_policy.html" import cookie_policy with context %}
 
 <!DOCTYPE html>
 <html lang="{{config.lang}}">
@@ -19,6 +20,7 @@
     </header>
     <main>
         {% block content %}{% endblock %}
+        {{ cookie_policy() }}
     </main>
     <footer>
         {{ footer() }}

@@ -8,7 +8,7 @@ def insert(name: str, email: str, password: str):
     """
     Insert a new user (example)
     """
-    sql = ''''INSERT INTO user (name, email, password) VALUES (%s, %s, %s)'''
+    sql = '''INSERT INTO user (name, email, password) VALUES (%s, %s, %s)'''
     database_utils.execute(
         sql,
         (name, email, password)
@@ -19,7 +19,7 @@ def find_all():
     """
     Select all users (example)
     """
-    sql = ''''SELECT * FROM user'''
+    sql = '''SELECT * FROM user'''
     return database_utils.execute_query(
         sql
     )
