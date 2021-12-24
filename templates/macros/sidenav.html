@@ -1,45 +1,29 @@
 {% macro sidenav() %}
-    <ul id="sidenav" class="sidenav">
+<div id="sidenav" class="offcanvas offcanvas-start text-white bg-dark" tabindex="-1" id="offcanvas" style="width: 300px;">
+    <div class="offcanvas-header">
+        <div class="offcanvas-title fs-4" id="offcanvasExampleLabel">{{config.title}}</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
         {% if is_authenticated() %}
-            <li class="center">
-                <div class="avatar-letters circle center white-text" style="width: 64px; height: 64px; background: deepblue;">
-                    {{ session['user_abbreviation'] }}
-                </div>
-            </li>
-            <li class="user-data">
-                <div class="user-name">{{ session['user_name'] }}</div>
-                <div class="user-name">{{ session['user_email'] }}</div>
-            </li>
-        {% else %}
-            <li class="center">
-                <h5 class="light white-text" style="margin: 15px 0px!important;">{{ config.title }}</h5>
-            </li>
+        <div class="text-center">
+            <div>{{session['user_name']}}</div>
+            <div>{{session['user_email']}}</div>
+        </div>
         {% endif %}
-        {% for option in menu %}
-            {% if option is not string %}
-            <li class="waves-effect waves-light">
-                <a href="{{option[1]}}">
-                    {% if option[2] %}
-                        <i class="mdi {{option[2]}} mdi-24px"></i>
-                    {% endif %}
-                    {{option[0]}}
-                </a>
-            </li>
-            {% else %}
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li>
-                <a class="subheader">
-                    {{option}}
-                </a>
-            </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    <script>
-        $(document).ready(() => {
-            $("#sidenav").sidenav();
-        });
-    </script>
+        <ul class="nav nav-pills flex-column">
+            {% for group_name in menu.keys() %}
+                <li class="nav-item mt-3">
+                    <h6>{{group_name}}</h6>
+                    <hr class="my-1">
+                </li>
+                {% for option in menu[group_name] %}
+                    <li class="nav-item sidenav-button rounded">
+                        <a class="nav-link text-white" href="{{option[1]}}"><i class="bi {{option[2]}} me-2"></i> {{option[0]}}</a>
+                    </li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endmacro %}

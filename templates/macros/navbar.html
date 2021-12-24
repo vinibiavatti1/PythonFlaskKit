@@ -1,17 +1,23 @@
 {% macro navbar() %}
-    <nav class="navbar translucent z-depth-0">
-        <div class="container">
-            <a class="brand-logo hide-on-small-only light" href="/">{{config.title}}</a>
-            <div class="right">
-                <ul class="right">
-                    {% for locale in locales %}
-                        <li><a href="/locale/{{locale}}">{{locale | upper}}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
+<nav class="navbar navbar-dark bg-dark p-3">
+    <div class="container justify-content-start">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidenav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand ms-3" href="/">{{config.title}}</a>
+        <div class="me-auto"></div>
+        <ul class="nav">
+            {% for code, name in locales.items() %}
+            <li class="nav-item">
+                <a class="nav-link white-anchor" href="/locale/{{code}}">{{name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% if not is_authenticated() %}
+        <div>
+            <a class="btn btn-outline-light ms-2 d-none d-sm-block" href="/login">Login</a>
         </div>
-        <a class="sidenav-btn left sidenav-trigger" style="display: inline-block;" data-target="sidenav" href="#!">
-            <span class="mdi mdi-menu mdi-24px"></span>
-        </a>
-    </nav>
+        {% endif %}
+    </div>
+</nav>
 {% endmacro %}

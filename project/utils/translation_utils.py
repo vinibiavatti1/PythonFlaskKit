@@ -1,38 +1,51 @@
 from project.errors import TranslationError
-from project.dictionaries import dictionaries
+from project.i18n import translations_dict
 from flask import request
 from typing import Union
 
 
-def get_dictionary(locale: str = None) -> dict:
+def get_translations(locale: str = None) -> dict:
     """
-    Get the dictionary by the specified locale. If locale is None, the cookies
-    will be check to find the user locale. If no locale found, the default
-    locale will be used
+    Get the translations by the specified locale. If locale is None,
+    the cookies will be check to find the user locale. If no locale found, the
+    default locale will be considered
     """
     if locale is None:
         locale = request.cookies.get('locale', 'default')
-    dictionary = dictionaries.get(locale, None)
-    return dictionary
+    translations = translations_dict.get(locale, None)
+    return translations
+
+
+def get_locales() -> dict:
+    """
+    Get a dict of locales with code and name. The default locale will no be
+    consider
+    """
+    locales = {}
+    for code, data in translations_dict.items():
+        if code == 'default':
+            continue
+        locales[code] = data['name']
+    return locales
 
 
 def translate(key: Union[tuple, str], locale: str = None) -> str:
     """
-    Get value from dictionary by locale. If key is string, it will be splitted
-    by dot "." to create a tuple. The key tuple will be used to find the
-    sentence in the dictionary
+    Get value from translations by locale. If key is string, it will be
+    splitted by dot "." to create a tuple. The key tuple will be used to find
+    the sentence in the translations
     """
-    dictionary = get_dictionary(locale)
+    translations = get_translations(locale)
     if isinstance(key, str):
         key = tuple(key.split('.'))
     for k in key:
-        dictionary = dictionary.get(k, None)
-        if dictionary is None:
+        translations = translations.get(k, None)
+        if translations is None:
             raise TranslationError(
                 f'Key "{str(key)}" not found in dictionary of locale '
                 f'"{locale}"'
             )
-    sentence = dictionary
+    sentence = translations
     if isinstance(sentence, dict):
         raise TranslationError(
             f'Invalid key "{str(key)}"'

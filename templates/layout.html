@@ -4,29 +4,34 @@
 {% from "macros/footer.html" import footer with context %}
 {% from "macros/headers.html" import metas, styles, scripts with context %}
 {% from "macros/cookie_policy.html" import cookie_policy with context %}
+{% from "macros/toast.html" import toasts_script with context %}
 
 <!DOCTYPE html>
-<html lang="{{config.lang}}">
+<html lang="{{config.lang}}" class="bg-dark h-100">
 <head>
     <title>{{config.title}} | {% block title %}{% endblock %}</title>
     {{ metas() }}
     {{ styles() }}
     {{ scripts() }}
 </head>
-<body>
+<body class="d-flex flex-column bg-dark h-100">
     <header>
         {{ navbar() }}
         {{ sidenav() }}
     </header>
-    <main>
+    <main class="flex-shrink-0">
         {% block content %}{% endblock %}
         {{ cookie_policy() }}
     </main>
-    <footer>
+    <footer class="mt-auto">
         {{ footer() }}
     </footer>
+    <div class="toast-container position-absolute p-3 top-0 end-0">
+        {% block toasts %}{% endblock %}
+    </div>
 </body>
 
 <!-- Plugins Configurations -->
 {{ datatables_script() }}
+{{ toasts_script() }}
 </html>

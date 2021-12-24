@@ -2,10 +2,16 @@
 {% extends 'layout.html' %}
 {% block title %}Chart{% endblock %}
 {% block content %}
-<div class="container">
-    <h5 class="white-text">Chart Example</h5>
-    <div class="panel">
-        {{ chart('chart', '100%', '600px', chart_type, json_data) }}
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <div class="fs-3 text-white">Chart Example</div>
+            <div class="card">
+                <div class="card-body">
+                    {{ chart('chart', '100%', '400px', chart_type, json_data) }}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

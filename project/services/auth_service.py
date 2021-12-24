@@ -7,7 +7,7 @@ def do_login(email: str, password: str) -> bool:
     """
     Authenticate user to application
     """
-    if password != 'admin':
+    if email != 'admin@admin.com' or password != 'admin':
         return False
     session[session_enum.USER_ID] = 1
     session[session_enum.USER_NAME] = 'admin'

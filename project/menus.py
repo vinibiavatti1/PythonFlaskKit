@@ -11,11 +11,12 @@ def build_public_menu() -> list[Union[tuple, str]]:
     """
     Return a list with menus for public area
     """
-    return [
-        t('menus.titles.menu'),
-        (t('menus.homepage'), '/', 'mdi-home'),
-        (t('menus.login'), '/login', 'mdi-login-variant'),
-    ]
+    return {
+        t('menus.titles.menu'): [
+            (t('menus.homepage'), '/', 'bi-house'),
+            (t('menus.login'), '/login', 'bi-box-arrow-in-right'),
+        ]
+    }
 
 
 def build_private_menu() -> list[Union[tuple, str]]:
@@ -29,13 +30,15 @@ def build_admin_manu() -> list[Union[tuple, str]]:
     """
     Return a list with menus for admin area
     """
-    return [
-        t('menus.titles.menu'),
-        (t('menus.homepage'), '/', 'mdi-home'),
-        (t('menus.map'), '/admin/map', 'mdi-map'),
-        (t('menus.chart'), '/admin/chart', 'mdi-chart-box'),
-        (t('menus.list'), '/admin/list', 'mdi-table-large'),
-        (t('menus.form'), '/admin/form', 'mdi-auto-fix'),
-        t('menus.titles.user'),
-        (t('menus.logout'), '/logout', 'mdi-logout-variant'),
-    ]
+    return {
+        t('menus.titles.menu'): [
+            (t('menus.homepage'), '/', 'bi-house'),
+            (t('menus.map'), '/admin/map', 'bi-map'),
+            (t('menus.chart'), '/admin/chart', 'bi-bar-chart'),
+            (t('menus.list'), '/admin/list', 'bi-table'),
+            (t('menus.form'), '/admin/form', 'bi-ui-checks'),
+        ],
+        t('menus.titles.user'): [
+            (t('menus.logout'), '/logout', 'bi-box-arrow-in-right'),
+        ]
+    }

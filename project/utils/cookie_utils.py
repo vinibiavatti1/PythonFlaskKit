@@ -2,7 +2,7 @@ from flask import request
 from project.enums.cookie_enum import COOKIE_POLICY
 
 
-def cookie_policy_accepted() -> bool:
+def cookie_policy_consent() -> bool:
     """
     Return True if user accepted the cookie policy, False if not, or None if
     the user didn't answer anything.

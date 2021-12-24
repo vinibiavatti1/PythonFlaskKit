@@ -1,35 +1,39 @@
 {% from "macros/chart.html" import chart with context %}
-{% from "macros/alerts.html" import alerts with context %}
+{% from "macros/alerts.html" import flash_alerts with context %}
 {% extends 'layout.html' %}
 {% block title %}Datatable{% endblock %}
 {% block content %}
-<div class="container">
-    <h5 class="white-text">{{ dictionary.general.actions }}</h5>
-    <div class="panel">
-        {{ alerts() }}
-        <a href="/admin/form" class="btn black">{{ dictionary.actions.add }}</a>
-    </div>
-
-    <h5 class="white-text">Datatable Example</h5>
-    <div class="panel">
-        <table class="datatable striped">
-            <thead>
-                <tr>
-                    {% for header in headers %}
-                        <th>{{header}}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in data %}
-                    <tr>
-                        {% for field in item %}
-                            <td>{{field | safe}}</td>
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <div class="fs-3 text-white">List Example</div>
+            <div class="card">
+                <div class="card-body">
+                    {{ flash_alerts() }}
+                    <div class="mb-2">
+                        <a href="/admin/form" class="btn btn-primary">{{ i18n.actions.add }}</a>
+                    </div>
+                    <table class="datatable table table-striped w-100">
+                        <thead>
+                            <tr>
+                                {% for header in headers %}
+                                    <th>{{header}}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in data %}
+                                <tr>
+                                    {% for field in item %}
+                                        <td>{{field | safe}}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

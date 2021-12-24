@@ -1,9 +1,9 @@
 from project.utils.security_utils import is_authenticated, has_permission
-from project.utils.cookie_utils import cookie_policy_accepted
+from project.utils.cookie_utils import cookie_policy_consent
 from flask import Blueprint
 from project.config import config
-from project.utils.translation_utils import get_dictionary
-from project.dictionaries import dictionaries
+from project.utils.translation_utils import get_translations, get_locales
+from project.i18n import translations_dict
 from project import menus
 from project.enums import permission_enum
 
@@ -34,12 +34,9 @@ def inject_dictionary():
     """
     if not config['i18n']:
         return
-    dictionary = get_dictionary()
-    locales = [k for k in dictionaries.keys() if k != 'default']
     return dict(
-        dictionary=dictionary,
-        i18n=dictionary,
-        locales=locales
+        i18n=get_translations(),
+        locales=get_locales(),
     )
 
 
@@ -52,7 +49,7 @@ def inject_resources():
         isinstance=isinstance,
         zip=zip,
         is_authenticated=is_authenticated,
-        cookie_policy_accepted=cookie_policy_accepted()
+        cookie_policy_consent=cookie_policy_consent()
     )
 
 
