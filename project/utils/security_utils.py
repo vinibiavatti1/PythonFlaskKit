@@ -2,8 +2,7 @@ from flask import abort, request, redirect
 from functools import wraps
 from project.utils.translation_utils import t
 from flask.helpers import flash
-from project.enums.session_enum import USER_ID
-from project.enums import session_enum
+from project.enums.session_enum import SessionEnum
 from flask import session
 from typing import Callable
 from hashlib import sha256
@@ -45,7 +44,7 @@ def validate_user_in_db() -> Callable:
     def decorator_wrapper(fn: Callable):
         @wraps(fn)
         def wrapper(*args, **kwargs):
-            if not is_user_active(session[USER_ID]):
+            if not is_user_active(session[SessionEnum.USER_ID]):
                 do_logout()
                 flash(t('errors.session_expired'), category='error')
                 return redirect('/login')
@@ -63,14 +62,15 @@ def is_authenticated() -> bool:
     """
     Return true if the user is authenticated in the application
     """
-    return USER_ID in session and len(str(session[USER_ID])) > 0
+    return (SessionEnum.USER_ID in session and
+            len(str(session[SessionEnum.USER_ID])) > 0)
 
 
 def has_permission(*permissions: int) -> bool:
     """
     Check if authenticated user has permission
     """
-    user_permission = session.get(session_enum.USER_PERMISSION, None)
+    user_permission = session.get(SessionEnum.USER_PERMISSION, None)
     if not user_permission:
         return False
     return user_permission in permissions

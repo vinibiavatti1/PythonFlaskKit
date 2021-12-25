@@ -4,7 +4,7 @@ from project.utils.security_utils import login_required, validate_user_in_db
 
 
 # Blueprint
-blueprint = Blueprint('chart', __name__)
+blueprint = Blueprint('chart', __name__, url_prefix='/admin/chart')
 
 
 ###############################################################################

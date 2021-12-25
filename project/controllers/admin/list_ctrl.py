@@ -3,7 +3,7 @@ from project.utils.security_utils import login_required
 
 
 # Blueprint
-blueprint = Blueprint('list', __name__)
+blueprint = Blueprint('list', __name__, url_prefix='/admin/list')
 
 
 ###############################################################################
