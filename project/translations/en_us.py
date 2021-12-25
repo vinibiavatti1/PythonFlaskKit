@@ -4,11 +4,12 @@ dictionary = {
     'general': {
         'yes': 'Yes',
         'no': 'No',
-        'credits': 'Made with ♥ by PythonFlaskKit',
+        'credits': 'Made with ♥ by vinibiavatti1',
         'actions': 'Actions',
         'form': 'Form',
         'welcome': 'Welcome!',
         'idiom': 'Idiom',
+        'noscript': 'You need Javascript enabled to use this website!',
     },
     'feedbacks': {
         'success': 'Action successfull',
@@ -22,6 +23,7 @@ dictionary = {
         'add': 'Add',
         'details': 'Details',
         'cancel': 'Cancel',
+        'see_more': 'See more',
     },
     'menus': {
         'titles': {

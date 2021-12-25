@@ -5,6 +5,7 @@
 {% from "macros/headers.html" import metas, styles, scripts with context %}
 {% from "macros/cookie_policy.html" import cookie_policy with context %}
 {% from "macros/toast.html" import toasts_script with context %}
+{% from "macros/noscript.html" import noscript with context %}
 
 <!DOCTYPE html>
 <html lang="{{config.lang}}" class="bg-dark h-100">
@@ -15,6 +16,9 @@
     {{ scripts() }}
 </head>
 <body class="d-flex flex-column bg-dark h-100">
+    <noscript>
+        {{ noscript() }}
+    </noscript>
     <header>
         {{ navbar() }}
         {{ sidenav() }}
