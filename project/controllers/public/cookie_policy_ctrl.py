@@ -14,12 +14,12 @@ blueprint = Blueprint('cookie_policy', __name__, url_prefix='/cookie-policy')
 @blueprint.route('/agree')
 def agree():
     response = make_response(redirect(request.referrer))
-    response.set_cookie(CookieEnum.COOKIE_POLICY, '1')
+    response.set_cookie(CookieEnum.COOKIE_POLICY.value, '1')
     return response
 
 
 @blueprint.route('/disagree')
 def disagree():
     response = make_response(redirect(request.referrer))
-    response.set_cookie(CookieEnum.COOKIE_POLICY, '0')
+    response.set_cookie(CookieEnum.COOKIE_POLICY.value, '0')
     return response
