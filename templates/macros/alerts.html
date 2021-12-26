@@ -1,3 +1,4 @@
+{# Alert macro #}
 {% macro alert(message, type, dismissible = true) %}
 <div class="alert alert-{{type}} {{ 'alert-dismissible' if dismissible else '' }}">
     {{message}}
@@ -7,6 +8,7 @@
 </div>
 {% endmacro %}
 
+{# Create alerts by flash messages #}
 {% macro flash_alerts() %}
     {% for category, message in get_flashed_messages(with_categories=true) %}
         {{ alert(message, category) }}

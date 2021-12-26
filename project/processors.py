@@ -5,7 +5,7 @@ from project.config import config
 from project.utils.translation_utils import get_translations, get_locales
 from project.i18n import translations_dict
 from project import menus
-from project.enums.permission_enum import PermissionEnum
+from project.enums import permission_enum
 
 
 # Blueprint
@@ -59,9 +59,9 @@ def inject_menu():
     Inject the sidenav menus by user authentication
     """
     menu = None
-    if has_permission(PermissionEnum.ADMIN.value):
+    if has_permission(permission_enum.ADMIN):
         menu = menus.build_admin_manu()
-    elif has_permission(PermissionEnum.MEMBER.value):
+    elif has_permission(permission_enum.MEMBER):
         menu = menus.build_private_menu()
     else:
         menu = menus.build_public_menu()

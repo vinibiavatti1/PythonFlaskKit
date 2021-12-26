@@ -1,5 +1,5 @@
 from flask import Blueprint, request, redirect, make_response
-from project.enums.cookie_enum import CookieEnum
+from project.enums import cookie_enum
 
 
 # Blueprint
@@ -14,5 +14,5 @@ blueprint = Blueprint('locale', __name__, url_prefix='/locale')
 @blueprint.route('/<locale>')
 def register(locale):
     response = make_response(redirect(request.referrer))
-    response.set_cookie(CookieEnum.LOCALE.value, locale)
+    response.set_cookie(cookie_enum.LOCALE, locale)
     return response

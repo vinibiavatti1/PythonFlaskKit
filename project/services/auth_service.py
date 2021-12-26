@@ -1,7 +1,6 @@
 from flask import session
-from project.enums.session_enum import SessionEnum
-from project.enums.permission_enum import PermissionEnum
-from project.utils.string_utils import get_name_abbreviation
+from project.enums import session_enum
+from project.enums import permission_enum
 
 
 def do_login(email: str, password: str) -> bool:
@@ -10,12 +9,10 @@ def do_login(email: str, password: str) -> bool:
     """
     if email != 'admin@admin.com' or password != 'admin':
         return False
-    session[SessionEnum.USER_ID.value] = 1
-    session[SessionEnum.USER_NAME.value] = 'admin'
-    session[SessionEnum.USER_EMAIL.value] = email
-    session[SessionEnum.USER_PERMISSION.value] = PermissionEnum.ADMIN.value
-    session[SessionEnum.USER_ABBREVIATION.value] = \
-        get_name_abbreviation('admin')
+    session[session_enum.USER_ID] = 1
+    session[session_enum.USER_NAME] = 'admin'
+    session[session_enum.USER_EMAIL] = email
+    session[session_enum.USER_PERMISSION] = permission_enum.ADMIN
     return True
 
 

@@ -12,7 +12,7 @@ config = {
     'key_words': 'key,words',
     'responsive': True,
     'charset': 'UTF-8',
-    'favicon': '/static/images/favicon-32x32.png',
+    'favicon': '/static/medias/favicon-32x32.png',
 
     # i18n
     'i18n': True,
