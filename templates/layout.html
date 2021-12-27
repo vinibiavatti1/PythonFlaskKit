@@ -25,11 +25,14 @@
     </header>
     <main class="flex-shrink-0">
         {% block content %}{% endblock %}
-        {{ cookie_policy() }}
     </main>
     <footer class="mt-auto">
         {{ footer() }}
     </footer>
+    <div class="modal-container">
+        {{ cookie_policy() }}
+        {% block modals %}{% endblock %}
+    </div>
     <div class="toast-container position-absolute p-3 top-0 end-0">
         {% block toasts %}{% endblock %}
     </div>

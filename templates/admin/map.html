@@ -1,10 +1,12 @@
 {% from "macros/map.html" import map with context %}
+{% from "macros/breadcrumb.html" import breadcrumb with context %}
 {% extends 'layout.html' %}
 {% block title %}Map{% endblock %}
 {% block content %}
 <div class="container my-3">
     <div class="row">
         <div class="col">
+            {{ breadcrumb(['Admin', 'Map']) }}
             <div class="fs-3 text-white">Map Example</div>
             <div class="card">
                 <div class="card-body">

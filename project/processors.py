@@ -48,6 +48,8 @@ def inject_resources():
     return dict(
         isinstance=isinstance,
         zip=zip,
+        enumerate=enumerate,
+        len=len,
         is_authenticated=is_authenticated,
         cookie_policy_consent=cookie_policy_consent()
     )

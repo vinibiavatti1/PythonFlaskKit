@@ -1,0 +1,16 @@
+{# Breadcrumb #}
+{% macro breadcrumb(items) %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {% for i, item in enumerate(items) %}
+        {% set active = false %}
+        {% if i == len(items) - 1 %}
+            {% set active = true %}
+        {% endif %}
+        <li class="breadcrumb-item {{'active' if active else 'text-white'}}">
+            {{item}}
+        </li>
+        {% endfor %}
+    </ol>
+</nav>
+{% endmacro %}

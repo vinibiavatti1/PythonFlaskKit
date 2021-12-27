@@ -1,11 +1,12 @@
-{% from "macros/chart.html" import chart with context %}
 {% from "macros/alerts.html" import flash_alerts with context %}
+{% from "macros/breadcrumb.html" import breadcrumb with context %}
 {% extends 'layout.html' %}
 {% block title %}List{% endblock %}
 {% block content %}
 <div class="container my-3">
     <div class="row">
         <div class="col">
+            {{ breadcrumb(['Admin', 'List']) }}
             <div class="fs-3 text-white">List Example</div>
             <div class="card">
                 <div class="card-body">
