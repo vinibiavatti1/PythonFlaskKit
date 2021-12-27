@@ -1,16 +1,18 @@
 {% macro footer() %}
 <div class="mt-auto py-3 bg-dark bg-opacity-50">
-    <div class="container d-flex text-light">
-        <div class="me-auto">
-            {{ i18n.general.credits }}
-        </div>
-        <div>
-            <a id="cookie-policy-btn" class="white-anchor text-decoration-none" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#cookie-policy-modal">
-                {{ i18n.footer.cookie_policy }}
-            </a>
-            <a id="github-btn" class="ms-2 white-anchor text-decoration-none" href="https://github.com/vinibiavatti1/PythonFlaskKit">
-                {{ i18n.footer.github_repository }}
-            </a>
+    <div class="container text-light">
+        <div class="row">
+            <div class="col col-12 col-sm-6">
+                {{ i18n.general.credits }}
+            </div>
+            <div class="col col-12 col-sm-6 text-start text-sm-end">
+                <a id="cookie-policy-btn" class="white-anchor text-decoration-none" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#cookie-policy-modal">
+                    {{ i18n.footer.cookie_policy }}
+                </a>
+                <a id="github-btn" class="ms-2 white-anchor text-decoration-none" href="https://github.com/vinibiavatti1/PythonFlaskKit">
+                    {{ i18n.footer.github_repository }}
+                </a>
+            </div>
         </div>
     </div>
 </div>

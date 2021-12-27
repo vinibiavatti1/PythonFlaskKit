@@ -19,9 +19,24 @@
                 </li>
                 {% for option in menu[group_name] %}
                     <li class="nav-item sidenav-button rounded">
-                        <a class="nav-link text-white" href="{{option[1]}}"><i class="bi {{option[2]}} me-2"></i> {{option[0]}}</a>
+                        <a class="nav-link text-white" href="{{option[1]}}">
+                            <i class="bi {{option[2]}} me-2"></i>
+                            {{option[0]}}
+                        </a>
                     </li>
                 {% endfor %}
+            {% endfor %}
+            <li class="nav-item mt-3">
+                <h6>{{ i18n.general.idiom }}</h6>
+                <hr class="my-1">
+            </li>
+            {% for code, name in locales.items() %}
+                <li class="nav-item sidenav-button rounded">
+                    <a class="nav-link text-white" href="/locale/{{code}}">
+                        <i class="bi bi-translate me-2"></i>
+                        {{name}}
+                    </a>
+                </li>
             {% endfor %}
         </ul>
     </div>

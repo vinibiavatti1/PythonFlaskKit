@@ -6,7 +6,7 @@
         </button>
         <a class="navbar-brand ms-3" href="/">{{config.title}}</a>
         <div class="me-auto"></div>
-        <ul class="nav">
+        <ul class="nav d-none d-sm-flex">
             {% for code, name in locales.items() %}
             <li class="nav-item">
                 <a class="nav-link white-anchor" href="/locale/{{code}}">{{name}}</a>
