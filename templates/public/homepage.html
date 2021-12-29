@@ -6,12 +6,12 @@
     <div class="text-light text-center" style="margin-top: 12rem">
         <h1 class="">{{i18n.homepage.title}}</h3>
         <hr>
-        <h3 class="">{{i18n.homepage.subtitle}}</h6>
+        <h3 class="">{{i18n.homepage.subtitle}}</h3>
     </div>
 </div>
 {% endblock %}
 {% block toasts %}
     {% if is_authenticated() %}
-        {{ toast('Notification', i18n.general.welcome, 'success', 'bi-info-circle-fill') }}
+        {{ toast('Notification', i18n.general.welcome, 'success') }}
     {% endif %}
 {% endblock %}

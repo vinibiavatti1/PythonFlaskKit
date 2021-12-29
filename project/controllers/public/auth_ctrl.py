@@ -4,6 +4,7 @@ from flask import Blueprint, request, render_template, flash
 from markupsafe import escape
 from project.validators import auth_validator
 from project.services import auth_service
+from project.config import config
 
 
 # Blueprint
@@ -22,9 +23,13 @@ def login():
 
 @blueprint.route('/login', methods=['POST'])
 def login_action():
-    # Validate form data
+    # Validate data and ReCaptcha
     try:
         auth_validator.validate_login_data(request.form)
+        if config['recaptcha_enabled']:
+            auth_validator.validate_recaptcha(
+                request.form.get('recaptcha-token')
+            )
     except ValidationError as err:
         flash(err, category='danger')
         return render_template('/public/login.html')

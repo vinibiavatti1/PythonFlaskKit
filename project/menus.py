@@ -37,6 +37,7 @@ def build_admin_manu() -> list[Union[tuple, str]]:
             (t('menus.chart'), '/admin/chart', 'bi-bar-chart'),
             (t('menus.list'), '/admin/list', 'bi-table'),
             (t('menus.form'), '/admin/form', 'bi-ui-checks'),
+            (t('menus.calendar'), '/admin/calendar', 'bi-calendar-date'),
         ],
         t('menus.titles.user'): [
             (t('menus.logout'), '/logout', 'bi-box-arrow-in-right'),

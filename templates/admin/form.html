@@ -18,7 +18,7 @@
             <div class="fs-3 text-white">Form Example</div>
             <div class="card">
                 <div class="card-body">
-                    <form action="/backoffice/form/save" method="POST">
+                    <form id="example-form" action="/backoffice/form/save" method="POST">
                         {{ flash_alerts() }}
                         {{
                             text_field(
@@ -81,7 +81,7 @@
                         }}
                         <div>
                             <a class="btn btn-secondary" href="/admin/list">{{ i18n.actions.cancel }}</a>
-                            <button type="submit" class="btn btn-primary">{{ i18n.actions.save }}</button>
+                            <button id="btn-submit" type="submit" class="btn btn-primary">{{ i18n.actions.save }}</button>
                         </div>
                     </form>
                 </div>

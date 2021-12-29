@@ -12,6 +12,7 @@ from project.controllers.admin import (
     chart_ctrl,
     list_ctrl,
     form_ctrl,
+    calendar_ctrl,
 )
 
 
@@ -27,6 +28,7 @@ blueprints = [
     list_ctrl.blueprint,
     form_ctrl.blueprint,
     cookie_policy_ctrl.blueprint,
+    calendar_ctrl.blueprint,
 ]
 
 

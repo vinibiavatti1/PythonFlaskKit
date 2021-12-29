@@ -1,0 +1,21 @@
+{# Full Calendar #}
+{% macro calendar(id, height, json_events) %}
+<div id="{{id}}"></div>
+<script>
+    $(document).ready(() => {
+        const calendarEl = document.getElementById('{{id}}');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            initialDate: '2021-12-27',
+            height: {{height}},
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            events: {{json_events | safe}}
+        });
+        calendar.render();
+    });
+</script>
+{% endmacro %}

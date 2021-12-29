@@ -1,0 +1,21 @@
+{# Google ReCaptcha v3 #}
+{% macro recaptcha(submit_btn_id, form_id) %}
+    <input id="recaptcha-token" name="recaptcha-token" type="hidden" value="">
+    <script>
+        $(document).ready(() => {
+            $('#{{submit_btn_id}}').on('click', recaptchaActionEvent);
+        });
+        function recaptchaActionEvent(e) {
+            e.preventDefault();
+            grecaptcha.ready(function () {
+                grecaptcha
+                    .execute("{{config.recaptcha_site_key}}", { action: "submit" })
+                    .then(function (token) {
+                        $('#recaptcha-token').val(token);
+                        $('#{{form_id}}').submit();
+                    }
+                );
+            });
+        }
+    </script>
+{% endmacro %}

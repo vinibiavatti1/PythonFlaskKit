@@ -37,6 +37,7 @@ dictionary = {
         'list': 'Lista',
         'form': 'Formulário',
         'logout': 'Sair',
+        'calendar': 'Calendário',
     },
     'homepage': {
         'title': 'Python Flask Kit',

@@ -2,7 +2,7 @@
 {% from "macros/sidenav.html" import sidenav with context %}
 {% from "macros/datatables.html" import datatables_script with context %}
 {% from "macros/footer.html" import footer with context %}
-{% from "macros/headers.html" import metas, styles, scripts with context %}
+{% from "macros/headers.html" import metas, links, scripts with context %}
 {% from "macros/cookie_policy.html" import cookie_policy with context %}
 {% from "macros/toast.html" import toasts_script with context %}
 {% from "macros/noscript.html" import noscript with context %}
@@ -12,7 +12,7 @@
 <head>
     <title>{{config.title}} | {% block title %}{% endblock %}</title>
     {{ metas() }}
-    {{ styles() }}
+    {{ links() }}
     {{ scripts() }}
 </head>
 <body class="d-flex flex-column bg-dark h-100">

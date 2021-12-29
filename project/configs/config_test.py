@@ -41,4 +41,10 @@ config = {
     'mail_login': 'contact@company.com',
     'mail_password': 'password',
     'mail_charset': 'UTF-8',
+
+    # ReCaptcha v3
+    'recaptcha_enabled': False,
+    'recaptcha_site_key': '6LfoMNgdAAAAAFC-FumFY8ga7QGAhBlPaOb0xBdH',
+    'recaptcha_secret_key': '6LfoMNgdAAAAAEu51riSXQK5Pkcda8wf3gp5mNRk',
+    'recaptcha_threshold': 0.5,
 }
