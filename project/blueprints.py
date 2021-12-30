@@ -2,6 +2,7 @@ from flask import Flask
 from project.processors import blueprint as processors
 from project.handlers import blueprint as handlers
 from project.controllers.public import (
+    seo_ctrl,
     auth_ctrl,
     homepage_ctrl,
     locale_ctrl,
@@ -20,6 +21,7 @@ from project.controllers.admin import (
 blueprints = [
     processors,
     handlers,
+    seo_ctrl.blueprint,
     homepage_ctrl.blueprint,
     auth_ctrl.blueprint,
     locale_ctrl.blueprint,
@@ -39,7 +41,7 @@ blueprints = [
 
 def register_blueprints(app: Flask) -> None:
     """
-    Register blueprints of project into flask application.
+    Register blueprints into flask application.
     """
     for blueprint in blueprints:
         app.register_blueprint(blueprint)
