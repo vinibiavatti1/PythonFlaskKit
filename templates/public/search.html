@@ -1,0 +1,45 @@
+{% from "macros/breadcrumb.html" import breadcrumb with context %}
+{% extends 'layout.html' %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            {{ breadcrumb(['Admin', 'Search']) }}
+            <div class="fs-3 text-white">Search</div>
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="GET" class="mb-3">
+                        <div class="mb-2">
+                            <input
+                                id="search-input-page"
+                                type="search"
+                                class="form-control"
+                                required=""
+                                placeholder="{{i18n.search.modal_placeholder}}"
+                                name="query"
+                                value="{{query}}"
+                                autofocus=""
+                            >
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">
+                                {{ i18n.actions.search }}
+                            </button>
+                        </div>
+                    </form>
+                    <div class="fw-bold">{{ i18n.search.results }}</div>
+                    <div class="list-group">
+                        {% for result in results %}
+                        <a href="{{result.link}}" class="list-group-item list-group-item-action" aria-current="true">
+                            <h5 class="mb-0">{{result.title}}</h5>
+                            <p class="mb-0">{{result.description}}</p>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

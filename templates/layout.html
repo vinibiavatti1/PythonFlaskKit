@@ -3,7 +3,8 @@
 {% from "macros/datatables.html" import datatables_script with context %}
 {% from "macros/footer.html" import footer with context %}
 {% from "macros/headers.html" import metas, links, scripts with context %}
-{% from "macros/cookie_policy.html" import cookie_policy with context %}
+{% from "macros/cookie_policy.html" import cookie_policy_modal with context %}
+{% from "macros/search.html" import search_modal with context %}
 {% from "macros/toast.html" import toasts_script with context %}
 {% from "macros/noscript.html" import noscript with context %}
 {% from "macros/form_validation.html" import form_validation_script with context %}
@@ -31,7 +32,8 @@
         {{ footer() }}
     </footer>
     <div class="modal-container">
-        {{ cookie_policy() }}
+        {{ cookie_policy_modal() }}
+        {{ search_modal() }}
         {% block modals %}{% endblock %}
     </div>
     <div class="toast-container position-absolute p-3 top-0 end-0">

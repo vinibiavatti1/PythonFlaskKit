@@ -7,17 +7,30 @@ from project.utils.translation_utils import t
 ###############################################################################
 
 
-def build_public_menu() -> list[Union[tuple, str]]:
+def build_public_menu() -> list[dict]:
     """
     Return a list with menus for public area
     """
-    return {
-        t('menus.titles.menu'): [
-            (t('menus.homepage'), '/', 'bi-house'),
-            (t('menus.login'), '/login', 'bi-box-arrow-in-right'),
-        ]
-    }
-
+    return [
+        {
+            'header': t('menus.headers.menu'),
+        },
+        {
+            'title': t('menus.homepage'),
+            'link': '/',
+            'icon': 'bi-house',
+        },
+        {
+            'title': t('menus.search'),
+            'modal': '#search-modal',
+            'icon': 'bi-search',
+        },
+        {
+            'title': t('menus.login'),
+            'link': '/login',
+            'icon': 'bi-box-arrow-in-right',
+        },
+    ]
 
 def build_private_menu() -> list[Union[tuple, str]]:
     """
@@ -26,20 +39,55 @@ def build_private_menu() -> list[Union[tuple, str]]:
     return []
 
 
-def build_admin_manu() -> list[Union[tuple, str]]:
+def build_admin_manu() -> list[dict]:
     """
     Return a list with menus for admin area
     """
-    return {
-        t('menus.titles.menu'): [
-            (t('menus.homepage'), '/', 'bi-house'),
-            (t('menus.map'), '/admin/map', 'bi-map'),
-            (t('menus.chart'), '/admin/chart', 'bi-bar-chart'),
-            (t('menus.list'), '/admin/list', 'bi-table'),
-            (t('menus.form'), '/admin/form', 'bi-ui-checks'),
-            (t('menus.calendar'), '/admin/calendar', 'bi-calendar-date'),
-        ],
-        t('menus.titles.user'): [
-            (t('menus.logout'), '/logout', 'bi-box-arrow-in-right'),
-        ]
-    }
+    return [
+        {
+            'header': t('menus.headers.menu'),
+        },
+        {
+            'title': t('menus.homepage'),
+            'link': '/',
+            'icon': 'bi-house',
+        },
+        {
+            'title': t('menus.map'),
+            'link': '/admin/map',
+            'icon': 'bi-map',
+        },
+        {
+            'title': t('menus.chart'),
+            'link': '/admin/chart',
+            'icon': 'bi-bar-chart',
+        },
+        {
+            'title': t('menus.list'),
+            'link': '/admin/list',
+            'icon': 'bi-table',
+        },
+        {
+            'title': t('menus.form'),
+            'link': '/admin/form',
+            'icon': 'bi-ui-checks',
+        },
+        {
+            'title': t('menus.calendar'),
+            'link': '/admin/calendar',
+            'icon': 'bi-calendar-date',
+        },
+        {
+            'title': t('menus.search'),
+            'modal': '#search-modal',
+            'icon': 'bi-search',
+        },
+        {
+            'header': t('menus.headers.user'),
+        },
+        {
+            'title': t('menus.logout'),
+            'link': '/logout',
+            'icon': 'bi-box-arrow-in-right',
+        },
+    ]

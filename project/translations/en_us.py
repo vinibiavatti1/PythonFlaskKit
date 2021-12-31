@@ -26,9 +26,10 @@ dictionary = {
         'details': 'Details',
         'cancel': 'Cancel',
         'see_more': 'See more',
+        'search': 'Search',
     },
     'menus': {
-        'titles': {
+        'headers': {
             'menu': 'Menu',
             'user': 'User'
         },
@@ -40,6 +41,11 @@ dictionary = {
         'form': 'Form',
         'logout': 'Logout',
         'calendar': 'Calendar',
+        'search': 'Search',
+    },
+    'search': {
+        'modal_placeholder': 'Type something to search...',
+        'results': 'Results',
     },
     'homepage': {
         'title': 'Python Flask Kit',

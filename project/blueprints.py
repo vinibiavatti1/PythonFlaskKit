@@ -6,7 +6,8 @@ from project.controllers.public import (
     auth_ctrl,
     homepage_ctrl,
     locale_ctrl,
-    cookie_policy_ctrl
+    cookie_policy_ctrl,
+    search_ctrl,
 )
 from project.controllers.admin import (
     map_ctrl,
@@ -31,6 +32,7 @@ blueprints = [
     form_ctrl.blueprint,
     cookie_policy_ctrl.blueprint,
     calendar_ctrl.blueprint,
+    search_ctrl.blueprint,
 ]
 
 

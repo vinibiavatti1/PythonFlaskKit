@@ -12,19 +12,35 @@
         </div>
         {% endif %}
         <ul class="nav nav-pills flex-column">
-            {% for group_name in menu.keys() %}
+            {% for item in menu %}
+                {% if item.header %}
                 <li class="nav-item mt-3">
-                    <h6>{{group_name}}</h6>
+                    <h6>{{ item.header }}</h6>
                     <hr class="my-1">
                 </li>
-                {% for option in menu[group_name] %}
-                    <li class="nav-item sidenav-button rounded">
-                        <a class="nav-link text-white" href="{{option[1]}}">
-                            <i class="bi {{option[2]}} me-2"></i>
-                            {{option[0]}}
-                        </a>
-                    </li>
-                {% endfor %}
+                {% elif item.modal %}
+                <li class="nav-item sidenav-button rounded">
+                    <a
+                        class="nav-link text-white"
+                        href="javascript:void(0)"
+                        data-bs-toggle="modal"
+                        data-bs-target="{{ item.modal }}"
+                    >
+                        <i class="bi {{item.icon}} me-2"></i>
+                        {{ item.title }}
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item sidenav-button rounded">
+                    <a
+                        class="nav-link text-white"
+                        href="{{item.link}}"
+                    >
+                        <i class="bi {{item.icon}} me-2"></i>
+                        {{ item.title }}
+                    </a>
+                </li>
+                {% endif %}
             {% endfor %}
             <li class="nav-item mt-3">
                 <h6>{{ i18n.general.idiom }}</h6>
