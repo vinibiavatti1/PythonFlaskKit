@@ -7,7 +7,7 @@
     date_field,
     datetime_field,
     select_field,
-    file_field %}
+    file_field with context %}
 {% extends 'layout.html' %}
 {% block title %}Form{% endblock %}
 {% block content %}
@@ -18,7 +18,7 @@
             <div class="fs-3 text-white">Form Example</div>
             <div class="card">
                 <div class="card-body">
-                    <form id="example-form" action="/backoffice/form/save" method="POST">
+                    <form id="example-form" action="/backoffice/form/save" method="POST" class="needs-validation" novalidate>
                         {{ flash_alerts() }}
                         {{
                             text_field(
@@ -26,7 +26,7 @@
                                 name="f1",
                                 css_class='blue-text',
                                 label=i18n.forms.example.f1.label,
-                                placeholder=i18n.forms.example.f1.placeholder
+                                placeholder=i18n.forms.example.f1.placeholder,
                             )
                         }}
                         {{

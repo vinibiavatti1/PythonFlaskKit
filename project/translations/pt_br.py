@@ -15,7 +15,9 @@ dictionary = {
         'success': 'Ação realizada com sucesso',
         'error': 'Um erro ocorreu ao realizar esta ação',
         'invalid': 'Valor inválido para o campo: {}',
-        'required': '{} precisa ser definido'
+        'required': '{} precisa ser definido',
+        'invalid_input': 'Valor inválido',
+        'valid_input': 'Valor válido',
     },
     'actions': {
         'save': 'Salvar',

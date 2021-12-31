@@ -6,6 +6,7 @@
 {% from "macros/cookie_policy.html" import cookie_policy with context %}
 {% from "macros/toast.html" import toasts_script with context %}
 {% from "macros/noscript.html" import noscript with context %}
+{% from "macros/form_validation.html" import form_validation_script with context %}
 
 <!DOCTYPE html>
 <html lang="{{config.lang}}" class="bg-dark h-100">
@@ -41,4 +42,5 @@
 <!-- Plugins Configurations -->
 {{ datatables_script() }}
 {{ toasts_script() }}
+{{ form_validation_script() }}
 </html>

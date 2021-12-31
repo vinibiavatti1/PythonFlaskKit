@@ -16,6 +16,8 @@ dictionary = {
         'error': 'An error ocurred to execute this action',
         'invalid': 'Invalid value for field: {}',
         'required': '{} must be set',
+        'invalid_input': 'Invalid value',
+        'valid_input': 'Valid value',
     },
     'actions': {
         'save': 'Save',
