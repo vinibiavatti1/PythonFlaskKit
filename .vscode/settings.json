@@ -1,22 +1,9 @@
 {
-    // Python linter
-    "python.linting.pycodestyleEnabled": true,
-    "python.linting.enabled": true,
-    "python.linting.pycodestyleCategorySeverity.E": "Information",
-    "python.linting.pycodestyleCategorySeverity.W": "Information",
-    "python.linting.pylintArgs": [
-        "--unsafe-load-any-extension=y",
-        "--errors-only",
-    ],
-
-    // Editor
     "editor.rulers": [
         79
     ],
     "html.validate.scripts": false,
     "html.validate.styles": false,
-
-    // Hide files
     "files.exclude": {
 		"**/.git": true,
 		"**/.svn": true,
@@ -26,5 +13,4 @@
         "**/__pycache__": true,
         "**/*.pyc": true
     },
-    "python.pythonPath": ".venv\\Scripts\\python.exe",
 }

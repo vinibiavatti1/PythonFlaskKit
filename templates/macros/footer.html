@@ -1,17 +1,28 @@
 {% macro footer() %}
-<div class="mt-auto py-3 bg-dark bg-opacity-50">
-    <div class="container text-light">
+<div class="w-100 bg-body-tertiary text-body-secondary p-5">
+    <div class="container">
         <div class="row">
-            <div class="col col-12 col-sm-6">
-                {{ i18n.general.credits }}
+            <div class="col-12 col-lg-3">
+                <h4 class="text-body-emphasis">Website</h4>
+                <div class="text-body-secondary">&copy; Copyright <span id="current-year"></span> - Website</div>
             </div>
-            <div class="col col-12 col-sm-6 text-start text-sm-end">
-                <a id="cookie-policy-btn" class="white-anchor text-decoration-none" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#cookie-policy-modal">
-                    {{ i18n.footer.cookie_policy }}
-                </a>
-                <a id="github-btn" class="ms-2 white-anchor text-decoration-none" href="https://github.com/vinibiavatti1/PythonFlaskKit">
-                    {{ i18n.footer.github_repository }}
-                </a>
+            <div class="col-12 col-lg-3 d-flex flex-column">
+                <h4 class="text-body-emphasis">Links</h4>
+                <a href="#">Link</a>
+                <a href="#">Link</a>
+                <a href="#">Link</a>
+            </div>
+            <div class="col-12 col-lg-3 d-flex flex-column">
+                <h4 class="text-body-emphasis">Links</h4>
+                <a href="#">Link</a>
+                <a href="#">Link</a>
+                <a href="#">Link</a>
+            </div>
+            <div class="col-12 col-lg-3 d-flex flex-column">
+                <h4 class="text-body-emphasis">Links</h4>
+                <a href="#">Link</a>
+                <a href="#">Link</a>
+                <a href="#">Link</a>
             </div>
         </div>
     </div>

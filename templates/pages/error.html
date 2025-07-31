@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Error
+{% endblock %}
+
+{% block head %}
+<meta name="description" content="Error">
+<meta name="keywords" content="error, conflict">
+<meta name="author" content="John Duo">
+<style></style>
+{% endblock %}
+
+{% block main %}
+<div class="text-light text-center" style="margin-top: 12rem">
+    <h1>Error {{ code }}</h1>
+    <hr>
+    <h3>{{ message }}</h3>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(() => {
+        // code
+    });
+</script>
+{% endblock %}
