@@ -8,12 +8,24 @@ Home
 <meta name="description" content="Homepage">
 <meta name="keywords" content="home, page">
 <meta name="author" content="John Duo">
-<style></style>
+<style>
+</style>
 {% endblock %}
 
 {% block main %}
-<div class="container">
-    Homepage
+<div class="container d-flex flex-fill align-items-center">
+    <div class="text-center my-4 w-100">
+        <h1 class="text-body-emphasis">Website</h1>
+        <hr>
+        <p class="fs-5 text-body-secondary">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+        <div class="d-flex gap-3 justify-content-center">
+            <a class="fs-5" href="#">Link</a>
+            <a class="fs-5" href="#">Link</a>
+            <a class="fs-5" href="#">Link</a>
+        </div>
+    </div>
 </div>
 {% endblock %}
 

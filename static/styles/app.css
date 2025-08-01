@@ -1,0 +1,25 @@
+/* Sticky Footer */
+body {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
+
+main {
+    flex: 1 1 auto !important;
+}
+
+/* Fade Effect */
+body {
+    animation: body-animation 0.25s;
+}
+
+@keyframes body-animation {
+    from {
+        opacity: 0.0;
+    }
+
+    to {
+        opacity: 1.0;
+    }
+}

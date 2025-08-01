@@ -7,20 +7,20 @@
 <html lang="en" class="bg-dark h-100" data-bs-theme="dark">
 
 <head>
-    <title>{{props.APP_NAME}} | {% block title %}{% endblock %}</title>
+    <title>{{constants.APP_NAME}} | {% block title %}{% endblock %}</title>
     {{ global_head() }}
     {{ flash_messages() }}
     {% block head %}{% endblock %}
 </head>
 
-<body class="d-flex flex-column bg-dark h-100">
+<body>
     <header>
         {% block header %}{{ header() }}{% endblock %}
     </header>
-    <main class="flex-shrink-0">
+    <main>
         {% block main %}{% endblock %}
     </main>
-    <footer class="mt-auto">
+    <footer>
         {% block footer %}{{ footer() }}{% endblock %}
     </footer>
     <div>
