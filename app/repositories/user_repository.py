@@ -1,6 +1,6 @@
 from app import database
 from app.entities.user_entity import UserEntity
-from app.filters.user_filter import UserFilter
+from app.models.user_entity_filter import UserEntityFilter
 from typing import Any
 
 
@@ -45,7 +45,7 @@ def get_user(id: int) -> UserEntity | None:
         return entity
 
 
-def list_users(filters: UserFilter) -> list[UserEntity]:
+def list_users(filters: UserEntityFilter) -> list[UserEntity]:
     with database.connect() as db:
         sql = f"""
             SELECT * FROM users WHERE 1 = 1

@@ -1,11 +1,11 @@
 from flask import session
 from app.repositories import user_repository
-from app.filters.user_filter import UserFilter
+from app.models.user_entity_filter import UserEntityFilter
 
 
 def login(email: str, password_hash: str) -> bool:
     users = user_repository.list_users(
-        UserFilter(email=email, password_hash=password_hash)
+        UserEntityFilter(email=email, password_hash=password_hash)
     )
     if len(users) == 1:
         user = users[0]

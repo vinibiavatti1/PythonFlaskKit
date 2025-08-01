@@ -4,10 +4,10 @@
 {% from "macros/flash_messages.html" import flash_messages with context %}
 
 <!DOCTYPE html>
-<html lang="{{props.lang}}" class="bg-dark h-100">
+<html lang="en" class="bg-dark h-100" data-bs-theme="dark">
 
 <head>
-    <title>{{props.app_name}} | {% block title %}{% endblock %}</title>
+    <title>{{props.APP_NAME}} | {% block title %}{% endblock %}</title>
     {{ global_head() }}
     {{ flash_messages() }}
     {% block head %}{% endblock %}
@@ -17,7 +17,7 @@
     <header>
         {% block header %}{{ header() }}{% endblock %}
     </header>
-    <main class="container flex-shrink-0">
+    <main class="flex-shrink-0">
         {% block main %}{% endblock %}
     </main>
     <footer class="mt-auto">

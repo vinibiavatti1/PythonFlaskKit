@@ -5,7 +5,7 @@ handlers = Blueprint('handlers', __name__)
 
 
 @handlers.app_errorhandler(400)
-def error_400():
+def error_400() -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=400,
@@ -14,7 +14,7 @@ def error_400():
 
 
 @handlers.app_errorhandler(401)
-def error_401():
+def error_401() -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=401,
@@ -23,7 +23,7 @@ def error_401():
 
 
 @handlers.app_errorhandler(403)
-def error_403():
+def error_403() -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=403,
@@ -32,7 +32,7 @@ def error_403():
 
 
 @handlers.app_errorhandler(404)
-def error_404():
+def error_404() -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=404,
@@ -41,7 +41,7 @@ def error_404():
 
 
 @handlers.app_errorhandler(500)
-def error_500():
+def error_500() -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=500,
