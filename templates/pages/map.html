@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Map
+{% endblock %}
+
+{% block head %}
+<meta name="description" content="Map">
+<meta name="keywords" content="map, example">
+<meta name="author" content="John Duo">
+<style>
+</style>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h1>Map Example</h1>
+    <div id="map" style="width: 100%; height: 400px;"></div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(() => {
+        let map = L.map('map').setView([{{lat}}, {{lng}}], {{zoom}});
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        {% for point in points %}
+            L.marker([{{point[0]}}, {{point[1]}}]).addTo(map);
+        {% endfor %}
+    });
+</script>
+{% endblock %}

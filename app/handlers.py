@@ -5,45 +5,45 @@ handlers = Blueprint('handlers', __name__)
 
 
 @handlers.app_errorhandler(400)
-def error_400() -> tuple[str, int]:
+def error_400(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=400,
-        message='Bad Request'
+        message=message
     ), 400
 
 
 @handlers.app_errorhandler(401)
-def error_401() -> tuple[str, int]:
+def error_401(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=401,
-        message='Unauthorized'
+        message=message
     ), 401
 
 
 @handlers.app_errorhandler(403)
-def error_403() -> tuple[str, int]:
+def error_403(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=403,
-        message='Forbidden'
+        message=message
     ), 403
 
 
 @handlers.app_errorhandler(404)
-def error_404() -> tuple[str, int]:
+def error_404(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=404,
-        message='Not Found'
+        message=message
     ), 404
 
 
 @handlers.app_errorhandler(500)
-def error_500() -> tuple[str, int]:
+def error_500(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
         code=500,
-        message='Internal Server Error'
+        message=message
     ), 500

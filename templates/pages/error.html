@@ -1,21 +1,19 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-Error
+Error {{ code }}
 {% endblock %}
 
 {% block head %}
-<meta name="description" content="Error">
-<meta name="keywords" content="error, conflict">
-<meta name="author" content="John Duo">
-<style></style>
+<style>
+</style>
 {% endblock %}
 
 {% block main %}
 <div class="container text-light text-center" style="margin-top: 12rem">
     <h1>Error {{ code }}</h1>
     <hr>
-    <h3>{{ message }}</h3>
+    <h4>{{ message }}</h4>
 </div>
 {% endblock %}
 

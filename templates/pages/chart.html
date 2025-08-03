@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Chart
+{% endblock %}
+
+{% block head %}
+<meta name="description" content="Chart">
+<meta name="keywords" content="chart, example">
+<meta name="author" content="John Duo">
+<style>
+</style>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h1>Chart Example</h1>
+    <div style="width: 100%; height: 400px">
+        <canvas id="chart"></canvas>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(() => {
+        var ctx = document.getElementById('chart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {{json_data | safe}},
+            options: {
+                "responsive": true,
+                "maintainAspectRatio": false
+            }
+        });
+    });
+</script>
+{% endblock %}

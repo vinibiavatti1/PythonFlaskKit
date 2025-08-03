@@ -7,11 +7,24 @@ from typing import Any
 def insert_user(entity: UserEntity) -> UserEntity:
     with database.connect() as db:
         sql = f"""
-            INSERT INTO users (name, email, password_hash, role, email_verified, hash)
-            VALUES (%s, %s, %s, %s, %s, %s)
+            INSERT INTO users (
+                name,
+                email,
+                password_hash,
+                role,
+                email_verified,
+                hash
+            ) VALUES (%s, %s, %s, %s, %s, %s)
         """
         cursor = db.cursor()
-        cursor.execute(sql, (entity.name, entity.email, entity.password_hash, entity.role, entity.email_verified, entity.hash))
+        cursor.execute(sql, (
+            entity.name,
+            entity.email,
+            entity.password_hash,
+            entity.role,
+            entity.email_verified,
+            entity.hash
+        ))
         db.commit()
         entity.id = cursor.lastrowid
         return entity
@@ -21,11 +34,23 @@ def update_user(entity: UserEntity) -> UserEntity:
     with database.connect() as db:
         sql = f"""
             UPDATE users
-            SET name = %s, active = %s, role = %s, email_verified = %s, last_login = %s, updated_at = CURRENT_TIMESTAMP
+            SET name = %s,
+                active = %s,
+                role = %s,
+                email_verified = %s,
+                last_login = %s,
+                updated_at = CURRENT_TIMESTAMP
             WHERE id = %s
         """
         cursor = db.cursor()
-        cursor.execute(sql, (entity.name, entity.active, entity.role, entity.email_verified, entity.last_login, entity.id))
+        cursor.execute(sql, (
+            entity.name,
+            entity.active,
+            entity.role,
+            entity.email_verified,
+            entity.last_login,
+            entity.id
+        ))
         db.commit()
         return entity
 

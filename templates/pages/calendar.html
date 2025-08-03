@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Calendar
+{% endblock %}
+
+{% block head %}
+<meta name="description" content="Calendar">
+<meta name="keywords" content="calendar, example">
+<meta name="author" content="John Duo">
+<style>
+</style>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h1>Calendar Example</h1>
+    <div id="calendar"></div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(() => {
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            initialDate: '2021-12-27',
+            height: 550,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            events: {{json_events | safe}}
+        });
+        calendar.render();
+    });
+</script>
+{% endblock %}

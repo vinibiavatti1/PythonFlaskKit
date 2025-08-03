@@ -1,15 +1,15 @@
 {% from "macros/global_head.html" import global_head with context %}
 {% from "macros/header.html" import header with context %}
 {% from "macros/footer.html" import footer with context %}
-{% from "macros/flash_messages.html" import flash_messages with context %}
+{% from "macros/toastr.html" import toastr with context %}
 
 <!DOCTYPE html>
-<html lang="en" class="bg-dark h-100" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <title>{{constants.APP_NAME}} | {% block title %}{% endblock %}</title>
     {{ global_head() }}
-    {{ flash_messages() }}
+    {{ toastr() }}
     {% block head %}{% endblock %}
 </head>
 

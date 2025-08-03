@@ -5,7 +5,7 @@ from app.models.user_entity_filter import UserEntityFilter
 
 def login(email: str, password_hash: str) -> bool:
     users = user_repository.list_users(
-        UserEntityFilter(email=email, password_hash=password_hash)
+        UserEntityFilter(email=email, password_hash=password_hash, active=1)
     )
     if len(users) == 1:
         user = users[0]
