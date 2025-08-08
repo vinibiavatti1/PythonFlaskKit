@@ -1,4 +1,4 @@
-from app.app import create_app
+from app.engine import create_app
 
 
 app = create_app(__name__, './envs/dev.env')

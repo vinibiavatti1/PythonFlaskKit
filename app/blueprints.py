@@ -1,5 +1,5 @@
-from app.processors import processors
-from app.handlers import handlers
+from app.inject import processors
+from app.error_handlers import error_handlers
 from app.controllers.home_ctrl import home_ctrl
 from app.controllers.config_ctrl import config_ctrl
 from app.controllers.auth_ctrl import auth_ctrl
@@ -12,7 +12,7 @@ from app.controllers.register_ctrl import register_ctrl
 
 blueprints = [
     processors,
-    handlers,
+    error_handlers,
     config_ctrl,
     home_ctrl,
     auth_ctrl,

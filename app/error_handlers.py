@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template
 
 
-handlers = Blueprint('handlers', __name__)
+error_handlers = Blueprint('error_handlers', __name__)
 
 
-@handlers.app_errorhandler(400)
+@error_handlers.app_errorhandler(400)
 def error_400(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
@@ -13,7 +13,7 @@ def error_400(message: str) -> tuple[str, int]:
     ), 400
 
 
-@handlers.app_errorhandler(401)
+@error_handlers.app_errorhandler(401)
 def error_401(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
@@ -22,7 +22,7 @@ def error_401(message: str) -> tuple[str, int]:
     ), 401
 
 
-@handlers.app_errorhandler(403)
+@error_handlers.app_errorhandler(403)
 def error_403(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
@@ -31,7 +31,7 @@ def error_403(message: str) -> tuple[str, int]:
     ), 403
 
 
-@handlers.app_errorhandler(404)
+@error_handlers.app_errorhandler(404)
 def error_404(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
@@ -40,7 +40,7 @@ def error_404(message: str) -> tuple[str, int]:
     ), 404
 
 
-@handlers.app_errorhandler(500)
+@error_handlers.app_errorhandler(500)
 def error_500(message: str) -> tuple[str, int]:
     return render_template(
         'pages/error.html',
